@@ -100,3 +100,12 @@ SHORT_RATIO_HIGH = 0.18  # ✅ 原文：卖空占比高于 18% 高位杀空
 - 日频→月均注意月末截断；数据源倒序必须反转后再入库
 - 演示数据量 ≥ 30 个月且覆盖触发/未触发两个路径，否则无法自测
 - 数值格式化：百分比显示统一 `f"{x*100:.1f}%"`，避免 0.1 vs 10% 混乱
+- `package_skill.py --out` 会被当作输出目录（产物在 `--out/<name>.zip`），需手动移动回目标路径；Windows 下 `--out` 开头目录删除可能被 safe-delete 拦截，用 PowerShell `Remove-Item -LiteralPath` 处理
+- SKILL.md frontmatter `description` 禁止含尖括号 `<` `>`（校验失败），阈值写成"高于/低于 X%"
+- westock-data 返回结构要先归一化：profit/financing/m12 可能是嵌套 `{"sections":[[...]]}` 且倒序，需 flatten+反转；premium_curve 可能是多个乱序 sections，需按 EndDate 排序重建序列
+- 同一指标不同数据源的绝对水平可能背离（例：westock ERP 3% vs 分析师引用 5.3%）；仅分位/方向可用时，绝对阈值触发不可跨口径比较，必须在 `_meta` 与 validation.md 双处标注
+- 工具函数必须过滤 None：窗口末端/次月数据未发布会让末值为 None，`get/trend_up/trend_down/recent_avg/pct_rank` 若直接比较会抛 TypeError；统一加 `_clean()` 剔除 None，`get()` 回溯最近有效值
+- 警惕文件后部的重复函数定义覆盖前面的修复；交付前用 `rg "^def "` 检查同名函数
+- data.json 建议内嵌 `months` 数组（升序、最新在末尾）：事件时点复算需要月份标签做切片与季节性信号；由 as_of 回推构造时注意 append/insert 方向
+- REQUIRED/OPTIONAL 字段分离：无公开数据源的字段放 OPTIONAL，对应信号优雅降级为"缺字段"提示，不得阻塞整体计算
+- 历史复算的区间锚前视偏差要显式标注：若分析师区间锚逐年大幅移动，统一用最新区间回算历史会失真；严格做法是分段切换区间参数

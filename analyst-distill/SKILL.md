@@ -1,7 +1,6 @@
 ---
 name: analyst-distill
 description: 分析师蒸馏流水线技能（自包含指令包）。当需要把任意领域卖方分析师（宏观/策略/固收/金工/行业）、买方或机构分析师的研究框架蒸馏为可执行 skill 辅助选股/配置时使用。本包不依赖对话历史：自带验收清单、脚本规范与骨架、示范样本库，任何平台/新对话加载本技能即可达到与既有完成品同等的蒸馏质量。覆盖完整流程：资料收集（限定时窗）→ 框架提取（framework/indicators/decision-rules）→ 技能打包（SKILL.md + screen.py + profile）→ 观点校验（views.md 时效分离）→ 信号验证（validation.md）。触发词："蒸馏分析师""分析师转skill""把XX的框架做成技能""蒸馏XX的框架""框架转技能"等。
-agent_created: true
 ---
 
 # 分析师蒸馏流水线（analyst-distill）—— 自包含指令包
@@ -18,7 +17,7 @@ agent_created: true
 | 验收标准（领域无关） | `references/acceptance-checklist.md` | 告诉 agent **什么样的产出算合格**（逐条勾选，任何领域通用） |
 | 示范样本（领域相关） | `examples/` + `references/scripts-conventions.md` + `references/domain-adapters.md` | 告诉 agent "好产出长什么样"（学结构与纪律，禁止照搬内容） |
 
-> **核心机制**：验收清单管质量下限（可扩展到任意领域），examples 提手感（只对已有类型），回填机制让样本库随蒸馏轮次自适应增长（覆盖开放空间）。
+> **核心机制**：验收清单管质量下限（可扩展到任意领域），examples 提供少量金样本手感（只学结构与标注纪律），domain-adapters 只沉淀跨案例稳定的类型模式，不随单个分析师自动扩写。
 
 ## 一、结构
 
@@ -30,7 +29,7 @@ analyst-distill/
 │   ├── scripts-conventions.md                # ★ screen.py 编写规范（架构 + JSON schema + 自测）
 │   └── domain-adapters.md                    # 领域翻译要点 + 新领域自适应路径 + 平台降级方案
 └── examples/
-    ├── README.md                             # 样本库使用规则 + 读取时机表 + 回填约定
+    ├── README.md                             # 样本库使用规则 + 读取时机表 + 案例归档约定
     ├── scripts-template/screen_template.py   # ★ 不完整代码骨架（框架就位，计算逻辑留占位）
     ├── macro-guolei/  macro-zhangyu/  strategy-zhangyidong/   # 完成品文档示范
 ```
@@ -67,6 +66,11 @@ analyst-distill/
   - `framework.md`：框架分层（**按该分析师自己的方法论主体分层，不强套已有领域**），每个框架含定义/逻辑/选股应用/窗口内实例 + 场景调用速查表
   - `indicators.md`：指标库（口径/频率/所属框架/阈值）+ 日常跟踪优先级
   - `decision-rules.md`：可执行规则（计算步骤、阈值、信号触发表），**阈值必须量化**
+- `decision-rules.md` 规则准入门槛：进入规则区的信息必须满足至少一项：
+  1. 分析师在多篇报告/访谈/路演中反复使用；
+  2. 分析师明确命名为框架、模型、指标体系或回测规则；
+  3. 来自年度/中期策略，但属于框架级更新，而非单次市场判断；
+  4. 纯工程化代理只能服务于上述框架，必须标 ❌ 推断，不得独立冒充分析师方法论。
 - **来源标注（强制，禁止"虚假精确"）**：三份文档顶部放统一图例（✅ 原文 / ⚠️ 外推 / ❌ 推断），每个阈值、权重、参数、回测数字逐条标注：
   - ✅ 原文 = 分析师公开研究中明确给出的数值/口径（尽量注明出处报告）；
   - ⚠️ 外推 = 有公开依据但具体数值/分档未经逐字核对（注明"以原文复核"）；
@@ -77,10 +81,11 @@ analyst-distill/
 - 等用户确认
 
 ### Phase 3 技能打包
-- `SKILL.md`：YAML frontmatter（name/description 第三人称含触发词/`agent_created: true`，**description 禁止尖括号**）+ 工作流（先读 views.md 最新观点→体检→择时→风格→配置）+ 数据获取（westock-data/westock-tool/neodata）+ 红线
+- `SKILL.md`：YAML frontmatter（仅 name/description，description 第三人称含触发词，**description 禁止尖括号**）+ 工作流（先读 views.md 最新观点→体检→择时→风格→配置）+ 数据获取（westock-data/westock-tool/neodata）+ 红线
 - `scripts/screen.py`：**复制 `examples/scripts-template/screen_template.py` 骨架 → 按 `references/scripts-conventions.md` + decision-rules.md 填充**。纯标准库；五函数结构；参数区注释块每常量带来源分级；`--data` 真实数据 / 默认演示模式（明确标注合成数据）/ `--json-out` 布尔标志
 - `assets/profile.md`：分析师档案（执业编号/团队/风格/与其他分析师差异）+ 36 个月观点验证记录（✅/⏳/❓/⚠️ 分级）+ **机构归属变化红线**
 - `assets/views.md`：观点快照区（顶部警示语"使用前核对最新观点"、时间倒序、旧快照标"已过期"、演化主线）
+- `assets/views.md` 层级说明（必须写入成品 skill）：`views.md` 是观点时间线/口径校准层，不是决策规则层；用于确认最新观点日期、机构归属、观点演化与有效期，不直接参与信号计算，不得替代 `decision-rules.md` 的可执行规则。
 - 用 skill-creator 的 `package_skill.py` 校验（必须输出 "Skill is valid"）；无该校验工具时按验收清单 §1/§9 人工勾选替代
 - 运行 `screen.py` 演示模式验证输出（demo 下每信号至少触发一次）
 - **验收**：对照 `references/acceptance-checklist.md` §1/§5/§6/§8 逐条勾选；校验通过；演示模式跑通
@@ -94,34 +99,28 @@ analyst-distill/
   回测跑出来的收益只证明"我们实现的版本"（含 ❌ 推断参数）的表现，**不能反推分析师真实参数**；
   报告必须写明：绩效数字 ≠ 分析师框架的绩效，推断参数是主要不确定来源
 - **数据缺口如实记录（三层来源标注）**：拿不到真实数据的因子用 ✅westock / ⚠️观点锚点+线性插值 / ❌工程代理 三级标注，不得用合成值冒充验证结论。误报点必须归因（数据口径差异 vs 框架边界 vs 原文含糊），并在结论中写明"必要非充分"类框架教训（例：三重共振是空间条件，缺时间/催化时仍会误报→决策规则需叠加确认条件）。
-- **known pitfalls（批量扩展必看）**：
-  - screen.py 的 `--json-out` 是布尔标志（stdout 输出 JSON），不是文件路径参数
-  - `package_skill.py --out` 会被当作输出目录（产物在 `--out/<name>.zip`），需手动 mv 回目标路径；Windows 下 `--out` 开头目录删除会被 safe-delete 拦截，用 PowerShell `Remove-Item -LiteralPath` 处理
-  - SKILL.md frontmatter `description` 禁止含尖括号 `<` `>`（校验失败），写成"高于/低于 X%"
-  - westock-data 返回：profit/financing/m12 为嵌套 `{"sections":[[...]]}` 且倒序，需 flatten+反转；premium_curve 为多个乱序 sections，需按 EndDate 排序重建序列；日频数据→月均时注意月末截断
-  - 口径差异警示：同一指标不同数据源绝对水平可能背离（例：westock ERP 3% vs 分析师引用 5.3%），仅分位/方向可用，绝对阈值触发不可跨口径比对——必须在 `_meta` 与 validation.md 双处标注
-  - 工具函数必须过滤 None：窗口末端/次月数据未发布（社融、政府债增量等）会让末值为 None，`get/trend_up/trend_down/recent_avg/pct_rank` 若直接比较会抛 TypeError——统一加 `_clean()` 剔除 None，`get()` 回溯最近有效值；**警惕文件后部的重复函数定义覆盖前面的修复**（张继强案例：trend_down 被后置旧版覆盖导致修复失效）
-  - data.json 建议内嵌 `months` 数组（升序、最新在末尾）：事件时点复算需要月份标签做切片与季节性信号；由 as_of 回推构造时注意 append/insert 方向（倒序 bug 高发）
-  - REQUIRED/OPTIONAL 字段分离：无公开数据源的字段（如债基久期/分歧度）放 OPTIONAL，对应信号优雅降级为"缺字段"提示，不得阻塞整体计算
-  - 历史复算的区间锚前视偏差：分析师区间锚逐年大幅下移（固收尤其明显），统一用最新区间回算历史会失真——validation.md 局限节必须显式标注；严格做法是分段切换区间参数
+- 脚本、数据口径、打包工具相关陷阱见 `references/scripts-conventions.md` §7；Phase 4 遇到脚本或数据异常时先按该节排查
 - **验收**：对照 `references/acceptance-checklist.md` §7 逐条勾选：五段式报告、三层来源表、≥5 事件三方对照、误报归因、口径差异双处标注
 - 写 `assets/validation.md`，更新 profile.md 验证状态，重新打包 zip（同步 validation.md）
 - 向用户汇报（拉了哪些数据/怎么回填/验证结论/误报），等确认
 
-### Phase 5 批量扩展与回填
+### Phase 5 批量扩展与案例归档
 - 原型确认后，按相同流水线批量蒸馏其余分析师
 - 跨分析师做差异化定位（如 12 位分析师 = 宏观3/策略3/固收3/金工3），避免框架重复
-- **回填机制（强制收尾步骤，样本库自适应增长的核心）**，每位分析师完成后：
-  1. 复制文档类 7 文件进 `examples/{specialty}-{name}/`（SKILL.md + references×3 + assets×3；**不复制 screen.py**——骨架与规范已覆盖脚本质量）
-  2. 更新 `examples/README.md` 索引表（顶部插入新行）
-  3. 向 `references/domain-adapters.md`"已有领域翻译要点"补写该领域要点
-  4. 新领域完成首例后：该类型从此有 example，后续同类型蒸馏读它
+- 完成单个分析师后，默认只交付该分析师独立 skill；不要自动改写 analyst-distill 的通用指令
+- 仅当用户要求归档，或该案例被判断为可复用金样本时，复制文档类 7 文件进 `examples/{specialty}-{name}/` 并更新 `examples/README.md` 索引表；**不复制 screen.py**
+- `references/domain-adapters.md` 只在形成跨案例稳定类型模式时更新，晋升标准见该文件"类型模式晋升门槛"
 
 ## 五、模板要点（从完成品固化）
 
 - 决策规则必须能量化到"可脚本化"：调仓频率、得分阈值、σ 倍数、分位阈值、滤波方法
 - **一切阈值/权重/参数带来源标注**（✅/⚠️/❌），推断值写明"最小假设，可替换"；禁止把推断数字写成原文引用
-- 观点与规则严格分离：信号计算不依赖观点快照；冲突时优先遵循信号并说明分歧
+- 观点与规则严格分离：`views.md` 是观点版本号/时间线，`decision-rules.md` 是推理程序；读取 `views.md` 的顺序优先，是为了时效校准，不代表决策优先级优先
+- 调用与输出顺序：先读 `views.md` 顶部最新观点以确认日期、机构与有效期；再按 `decision-rules.md`/`screen.py` 运行当前信号；最后在输出中引用最新观点、标注分歧
+- 最新观点与信号冲突时：
+  - 若信号基于 ✅原文规则 + 最新真实数据 → 信号优先，并说明"当前数据已偏离最新观点假设"；
+  - 若信号主要依赖 ❌推断参数或缺失数据代理 → 不直接压过 views，输出"低置信分歧"；
+  - 不论冲突形式如何，必须在输出中汇报分歧及其置信来源。
 - screen.py 保持纯标准库（HP 滤波共轭梯度 ~30 行，避免 numpy 依赖）；结构与质量见 `references/scripts-conventions.md`
 - A 股惯例：涨红跌绿、货币 ¥
 - 每次 phase 完成写入 `.workbuddy/memory/YYYY-MM-DD.md`（记录决策与产出）
