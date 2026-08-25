@@ -100,6 +100,10 @@ analyst-distill/
   - SKILL.md frontmatter `description` 禁止含尖括号 `<` `>`（校验失败），写成"高于/低于 X%"
   - westock-data 返回：profit/financing/m12 为嵌套 `{"sections":[[...]]}` 且倒序，需 flatten+反转；premium_curve 为多个乱序 sections，需按 EndDate 排序重建序列；日频数据→月均时注意月末截断
   - 口径差异警示：同一指标不同数据源绝对水平可能背离（例：westock ERP 3% vs 分析师引用 5.3%），仅分位/方向可用，绝对阈值触发不可跨口径比对——必须在 `_meta` 与 validation.md 双处标注
+  - 工具函数必须过滤 None：窗口末端/次月数据未发布（社融、政府债增量等）会让末值为 None，`get/trend_up/trend_down/recent_avg/pct_rank` 若直接比较会抛 TypeError——统一加 `_clean()` 剔除 None，`get()` 回溯最近有效值；**警惕文件后部的重复函数定义覆盖前面的修复**（张继强案例：trend_down 被后置旧版覆盖导致修复失效）
+  - data.json 建议内嵌 `months` 数组（升序、最新在末尾）：事件时点复算需要月份标签做切片与季节性信号；由 as_of 回推构造时注意 append/insert 方向（倒序 bug 高发）
+  - REQUIRED/OPTIONAL 字段分离：无公开数据源的字段（如债基久期/分歧度）放 OPTIONAL，对应信号优雅降级为"缺字段"提示，不得阻塞整体计算
+  - 历史复算的区间锚前视偏差：分析师区间锚逐年大幅下移（固收尤其明显），统一用最新区间回算历史会失真——validation.md 局限节必须显式标注；严格做法是分段切换区间参数
 - **验收**：对照 `references/acceptance-checklist.md` §7 逐条勾选：五段式报告、三层来源表、≥5 事件三方对照、误报归因、口径差异双处标注
 - 写 `assets/validation.md`，更新 profile.md 验证状态，重新打包 zip（同步 validation.md）
 - 向用户汇报（拉了哪些数据/怎么回填/验证结论/误报），等确认
