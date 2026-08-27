@@ -4,7 +4,7 @@
 <skill-name> 信号计算脚本 —— 结构模板（screen_template.py）
 ============================================================
 本文件是 analyst-distill 的【不完整骨架】：
-  - 框架已就位且可运行：工具函数 / 参数区 / 五函数结构 / JSON schema / 三入口
+  - 框架已就位且可运行：工具函数 / 参数区 / 五函数结构 / JSON schema / --schema / 四入口
   - 各 calc_* 信号函数为占位实现（返回"未实现"），需按 references/decision-rules.md 填充
 
 标准做法（详见 references/scripts-conventions.md）：
@@ -13,12 +13,17 @@
   3. 逐个实现 calc_*（触发条件/阈值/强度），detail 必须含读数
   4. 按领域调整 aggregate_signals（宏观→股债+风格+行业；策略→仓位+风格+区域+主线；等）
   5. 替换 demo_data 字段为 decision-rules.md 数据-规则映射附录的字段清单
-  6. 自测：演示模式跑通、demo 下每信号至少触发一次、--json-out 可解析
+  6. 自测：演示模式跑通、demo 下每信号至少触发一次、--schema/--json-out 可解析
 """
 
 import argparse
 import json
 import math as _m
+import sys
+
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 
 
 # ============================================================
@@ -184,6 +189,39 @@ def render_report(signals, positions, data, n_triggered, total):
 
 
 # ----------------------------------------------------------------------------
+# 输入契约（领域相关，交付时按 decision-rules.md 数据-规则映射附录替换）
+# ----------------------------------------------------------------------------
+
+def schema():
+    """返回调用方准备 --data 所需的最小输入契约。
+
+    成品 SKILL.md 应要求 agent 运行 `python scripts/screen.py --schema` 获取字段清单，
+    不要读取 screen.py 源码。
+    """
+    return {
+        "description": "<skill-name> input schema",
+        "history": {
+            "required": [
+                {"field": "erp_a", "description": "示例：A股 ERP 月度序列，最新在末尾"},
+            ],
+            "optional": [
+                {"field": "pe_x", "description": "示例：估值月度序列"},
+                {"field": "growth_yoy", "description": "示例：盈利或景气同比月度序列"},
+                {"field": "flow_bn", "description": "示例：资金流月度序列，单位亿元"},
+            ],
+            "format": "字段 -> 月份数组；月份升序，最新值在末尾",
+        },
+        "extras": {
+            "required": [],
+            "optional": [
+                {"field": "<style_or_stage>", "description": "风格/阶段类人工判定字段，按目标分析师规则替换"}
+            ],
+        },
+        "_meta": "可选；记录每个字段的数据来源、口径差异和降级方式",
+    }
+
+
+# ----------------------------------------------------------------------------
 # 演示模式数据（合成）
 # ----------------------------------------------------------------------------
 
@@ -220,7 +258,12 @@ def main():
     ap = argparse.ArgumentParser(description="<skill-name> 框架信号计算")
     ap.add_argument("--data", help="数据 JSON 文件路径（缺省为演示模式）")
     ap.add_argument("--json-out", action="store_true", help="输出 JSON 格式结果（布尔标志，JSON 打到 stdout）")
+    ap.add_argument("--schema", action="store_true", help="输出输入契约 JSON（布尔标志，JSON 打到 stdout）")
     args = ap.parse_args()
+
+    if args.schema:
+        print(json.dumps(schema(), ensure_ascii=False, indent=1))
+        return
 
     if args.data:
         with open(args.data, encoding="utf-8") as f:

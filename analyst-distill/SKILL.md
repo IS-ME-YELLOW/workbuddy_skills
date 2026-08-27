@@ -1,26 +1,9 @@
 ---
 name: analyst-distill
-description: 分析师蒸馏流水线技能（自包含指令包）。当需要把任意领域卖方分析师（宏观/策略/固收/金工/行业）、买方或机构分析师的研究框架蒸馏为可执行 skill 辅助选股/配置时使用。本包不依赖对话历史：自带验收清单、脚本规范与骨架、示范样本库，任何平台/新对话加载本技能即可达到与既有完成品同等的蒸馏质量。覆盖完整流程：资料收集（限定时窗）→ 框架提取（framework/indicators/decision-rules）→ 技能打包（SKILL.md + screen.py + profile）→ 观点校验（views.md 时效分离）→ 信号验证（validation.md）。触发词："蒸馏分析师""分析师转skill""把XX的框架做成技能""蒸馏XX的框架""框架转技能"等。
+description: 分析师蒸馏流水线技能（自包含指令包）。当需要把任意领域卖方分析师（宏观/策略/固收/金工/行业）、买方或机构分析师的研究框架蒸馏为可执行 skill 辅助选股/配置时使用。触发词："蒸馏分析师""分析师转skill""把XX的框架做成技能""蒸馏XX的框架""框架转技能"等。
 ---
 
-# 分析师蒸馏流水线（analyst-distill）—— 自包含指令包
-
-将卖方/买方/机构分析师公开研究蒸馏为可执行选股/配置 skill 的标准流程。已完成原型：郭磊(宏观)、张瑜(宏观)、张忆东(策略)，本包固化其方法、模板与验收标准。
-
-## 零、自包含声明（先读）
-
-本Skill为自包含指令包，不依赖平台与上下文环境。质量保障由三层构成：
-
-| 层 | 载体 | 作用 |
-|---|---|---|
-| 流程骨架 | 本 SKILL.md（五阶段 + 红线） | 告诉 agent 做什么、按什么顺序 |
-| 验收标准（领域无关） | `references/acceptance-checklist.md` | 告诉 agent **什么样的产出算合格**（逐条勾选，任何领域通用） |
-| 示范样本（领域相关） | `examples/` + `references/scripts-conventions.md` + `references/domain-adapters.md` | 告诉 agent "好产出长什么样"（学结构与纪律，禁止照搬内容） |
-
-> **核心机制**：验收清单管质量下限（可扩展到任意领域），examples 提供少量金样本手感（只学结构与标注纪律），domain-adapters 只沉淀跨案例稳定的类型模式，不随单个分析师自动扩写。
-
 ## 一、结构
-
 ```
 analyst-distill/
 ├── SKILL.md                                  # 本文件：入口（流程 + 红线）
@@ -30,8 +13,8 @@ analyst-distill/
 │   └── domain-adapters.md                    # 领域翻译要点 + 新领域自适应路径 + 平台降级方案
 └── examples/
     ├── README.md                             # 样本库使用规则 + 读取时机表 + 案例归档约定
-    ├── scripts-template/screen_template.py   # ★ 不完整代码骨架（框架就位，计算逻辑留占位）
-    ├── macro-guolei/  macro-zhangyu/  strategy-zhangyidong/   # 完成品文档示范
+    ├── scripts-template/screen_template.py   # ★ 不完整代码骨架（框架就位，计算逻辑留占位）   
+    └── {specialty}-{name}/                    # 完成品文档示范
 ```
 
 ## 二、使用前必读（新对话读取顺序）
@@ -44,12 +27,11 @@ analyst-distill/
 
 ## 三、前置约定（与用户确认后再开工）
 
-1. **产品形态**：先做 Skill，后续再集成 Expert
-2. **技能结构**：每位分析师一个独立 skill，命名 `analyst-{specialty}-{name}`（specialty: macro/strategy/fixed-income/quant，或其他实际领域）
-3. **输出格式**：框架 + 可执行脚本
-4. **安装位置**：用户级 `~/.workbuddy/skills/`
-5. **资料窗口**：近 36 个月（明确起止月份）
-6. **工作流**：每完成一个 phase 向用户汇报（找了什么资料/写了什么文档/文档概要），等确认再继续（用户明示"免确认直接跑"除外）
+1. **产品形态**：每位分析师一个独立 skill，命名 `analyst-{specialty}-{name}`（specialty: macro/strategy/fixed-income/quant，或其他实际领域）
+2. **输出格式**：框架 + 可执行脚本
+3. **安装位置**：用户级 `~/.workbuddy/skills/`
+4. **资料窗口**：近 36 个月（明确起止月份）
+5. **工作流**：每完成一个 phase 向用户汇报（找了什么资料/写了什么文档/文档概要），等确认再继续（用户明示"免确认直接跑"除外）
 
 ## 四、五阶段流水线
 
@@ -82,7 +64,9 @@ analyst-distill/
 
 ### Phase 3 技能打包
 - `SKILL.md`：YAML frontmatter（仅 name/description，description 第三人称含触发词，**description 禁止尖括号**）+ 工作流（先读 views.md 最新观点→体检→择时→风格→配置）+ 数据获取（westock-data/westock-tool/neodata）+ 红线
-- `scripts/screen.py`：**复制 `examples/scripts-template/screen_template.py` 骨架 → 按 `references/scripts-conventions.md` + decision-rules.md 填充**。纯标准库；五函数结构；参数区注释块每常量带来源分级；`--data` 真实数据 / 默认演示模式（明确标注合成数据）/ `--json-out` 布尔标志
+    - description 控制在约 100-160 中文字，写“一句话定位 + 关键触发场景”；不要枚举指标、阈值、报告标题和完整术语表。
+- `scripts/screen.py`：**复制 `examples/scripts-template/screen_template.py` 骨架 → 按 `references/scripts-conventions.md` + decision-rules.md 填充**。纯标准库；五函数结构；参数区注释块每常量带来源分级；`--data` 真实数据 / 默认演示模式（明确标注合成数据）/ `--json-out` 布尔标志 /`--schema`：输出 JSON Schema。
+    - 需要计算时先运行 `python scripts/screen.py --schema` 获取输入字段，再准备数据并运行 `python scripts/screen.py --data data.json`。
 - `assets/profile.md`：分析师档案（执业编号/团队/风格/与其他分析师差异）+ 36 个月观点验证记录（✅/⏳/❓/⚠️ 分级）+ **机构归属变化红线**
 - `assets/views.md`：观点快照区（顶部警示语"使用前核对最新观点"、时间倒序、旧快照标"已过期"、演化主线）
 - `assets/views.md` 层级说明（必须写入成品 skill）：`views.md` 是观点时间线/口径校准层，不是决策规则层；用于确认最新观点日期、机构归属、观点演化与有效期，不直接参与信号计算，不得替代 `decision-rules.md` 的可执行规则。

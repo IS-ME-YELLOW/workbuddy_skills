@@ -1,7 +1,7 @@
 # screen.py 脚本编写规范（Scripts Conventions）
 
 > **定位**：规定蒸馏产出的 `scripts/screen.py` 必须达到的架构与质量标准，保证任意新对话产出的脚本与既有三份（guolei/zhangyu/zhangyidong）**同框架、同质量**。
-> **配套**：`examples/scripts-template/screen_template.py` 是**不完整骨架**（函数签名、参数区格式、JSON schema 已就位，计算逻辑留占位）。新任务的标准做法 = **复制骨架 → 按本规范 + decision-rules.md 填充计算函数 → 自测通过**。
+> **配套**：`examples/scripts-template/screen_template.py` 是**不完整骨架**（函数签名、参数区格式、JSON schema/`--schema` 已就位，计算逻辑留占位）。新任务的标准做法 = **复制骨架 → 按本规范 + decision-rules.md 填充计算函数 → 自测通过**。
 > 骨架缺"实现细节"，本规范缺"结构约束"，两者互补，缺一不可。
 
 ---
@@ -13,6 +13,7 @@
 - [ ] 不依赖网络、不依赖数据源 SDK——数据通过 `--data <json>` 注入，脚本只做计算与渲染
 - [ ] A 股惯例：涨红跌绿（输出/渲染用色时）、货币 ¥
 - [ ] 所有魔法数字集中在**参数区**（见 §2），函数体内不散落裸阈值
+- [ ] 输入契约通过 `python screen.py --schema` 暴露；成品 SKILL.md 不得要求 agent 读取脚本源码查看 schema
 
 ## 2. 参数区注释块（文件顶部，紧接 imports）
 
@@ -45,12 +46,20 @@ SHORT_RATIO_HIGH = 0.18  # ✅ 原文：卖空占比高于 18% 高位杀空
 | `aggregate_signals(results, extras)` | 汇总各信号 → 仓位/结构/配置建议 | `results: list[dict] → dict` |
 | `render_report(signals, positions, extras)` | 人类可读报表 | → `str` |
 | `demo_data()` | 合成演示数据（明确标注"合成"） | → `(history, extras)` |
-| `main()` | argparse 三入口 + 组装全流程 | → 打印/JSON |
+| `main()` | argparse 四入口 + 组装全流程 | → 打印/JSON/schema |
 
 - **数据层与计算层分离**：所有信号函数只吃 `history` 字典切片（字段→月份数组），不直接解析原始数据文件
 - history 切片按月份索引（`history[field][:idx]`），**最新在末尾**——事件时点复算依赖此约定
 
-## 4. 输入 JSON schema（`--data` 参数）
+## 4. 输入 JSON schema（`--schema` 与 `--data` 参数）
+
+成品脚本必须支持：
+
+```bash
+python scripts/screen.py --schema
+```
+
+`--schema` 直接向 stdout 输出 JSON，说明 required/optional history 字段、extras 字段和简短字段含义。它应在读取 `--data` 前返回，不要求真实数据存在。
 
 ```jsonc
 {
@@ -88,6 +97,7 @@ SHORT_RATIO_HIGH = 0.18  # ✅ 原文：卖空占比高于 18% 高位杀空
 ## 6. 自测要求（交付前必须全部通过）
 
 - [ ] `python screen.py`（演示模式）无报错、输出完整、明确标注"合成数据"
+- [ ] `python screen.py --schema` 输出可被 `json.load` 解析，且 required 字段与数据-规则映射附录一致
 - [ ] `python screen.py --data <json>` 与真实数据跑通，缺字段时报**明确错误**（哪个字段缺失）
 - [ ] `python screen.py --data <json> --json-out` 输出可被 `json.load` 解析
 - [ ] 每个 `compute_<signal>` 在 demo 数据下至少触发过一次（覆盖触发路径）且能测到未触发路径
@@ -96,6 +106,7 @@ SHORT_RATIO_HIGH = 0.18  # ✅ 原文：卖空占比高于 18% 高位杀空
 ## 7. 常见陷阱（历次蒸馏踩过）
 
 - `--json-out` 是**布尔标志**（JSON 打到 stdout），不是文件路径参数
+- `--schema` 是**布尔标志**（schema JSON 打到 stdout），不是文件路径参数
 - history 是转置结构：切片按 `field[:idx]`，**不是**按行取月份
 - 日频→月均注意月末截断；数据源倒序必须反转后再入库
 - 演示数据量 ≥ 30 个月且覆盖触发/未触发两个路径，否则无法自测

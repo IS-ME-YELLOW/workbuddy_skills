@@ -17,8 +17,10 @@
 ## §1 成品 SKILL.md（Phase 3 产出）
 
 - [ ] ✅ `name` 符合 `analyst-{specialty}-{name}`（specialty ∈ macro/strategy/fixed-income/quant，或按实际扩展）
-- [ ] ✅ frontmatter 仅含 `name` 与 `description`；`description` 使用第三人称 + 触发词 + 一句话定位
+- [ ] ✅ frontmatter 仅含 `name` 与 `description`；`description` 使用第三人称 + 触发词 + 一句话定位，控制在约 100-160 中文字
 - [ ] ✅ `description` **无尖括号 `<` `>`**（package_skill.py 校验硬性失败项；阈值一律写成"高于/低于 X%"）
+- [ ] ✅ `description` 不枚举长指标清单、阈值清单、报告标题清单或术语百科；具体知识放入 references/assets
+- [ ] ✅ 明确写入：除调试外，不读取 `scripts/screen.py` 源码；用 `python scripts/screen.py --schema` 获取输入契约
 - [ ] ✅ 含五章节：使用流程 / 触发场景速查表 / 数据获取 / 脚本使用 / 红线与注意事项
 - [ ] ✅ 使用流程第一步是"读 `assets/views.md` 最新观点"（观点时效性第一原则）
 - [ ] ⚠️ 工作流明确"先体检→再择时→后配置/结构"的顺序（与 decision-rules 一致）
@@ -81,7 +83,8 @@
 - [ ] ✅ **纯标准库**（无 pandas/numpy 依赖；滤波可用共轭梯度等自实现）
 - [ ] ✅ **五函数结构**：计算函数（每信号一个）/ `aggregate_signals` / `render_report` / `demo_data` / `main`
 - [ ] ✅ 顶部**参数区注释块**：每个常量列出默认值与来源分级（✅/⚠️/❌），与 decision-rules.md 图例一致
-- [ ] ✅ 三种运行入口：`--data <json>` 真实数据 / 默认演示模式（输出明确标注"合成数据"）/ `--json-out`（布尔标志，stdout 输出机器可读 JSON）
+- [ ] ✅ 四种运行入口：`--data <json>` 真实数据 / 默认演示模式（输出明确标注"合成数据"）/ `--json-out`（布尔标志，stdout 输出机器可读 JSON）/ `--schema`（stdout 输出输入契约）
+- [ ] ✅ `--schema` 足以让调用方准备数据字段；成品 `SKILL.md` 不得要求 agent 读取脚本源码来查看 schema
 - [ ] ✅ 输入 JSON：`history` 为"字段→月份数组"转置结构（最新在末尾），`extras` 为风格/阶段类单值，`_meta` 为数据来源说明
 - [ ] ✅ 输出 JSON 含：`signals`（id/name/triggered/detail/strength）/ `positions` / `extras` / `n_triggered` / `total`
 - [ ] ✅ 演示模式可跑通（无数据输入也能展示全流程输出）
@@ -91,11 +94,11 @@
 ## §9 全局（贯穿所有 phase）
 
 - [ ] ✅ **每个 phase 向用户汇报并等确认**（用户明示"免确认直接跑"除外）
-- [ ] ✅ **读取顺序 ≠ 决策优先级**：先读 `views.md` 顶部最新观点是为了校准日期、机构与有效期；真正决策以 `decision-rules.md`/`screen.py` 当前信号为主
 - [ ] ✅ **观点与规则严格分离**：信号计算不依赖观点快照；若最新观点与信号冲突，必须输出分歧说明。✅原文规则 + 最新真实数据的高置信信号优先；主要依赖 ❌推断参数或缺失数据代理的信号不得机械压过 views，只能标为低置信分歧
 - [ ] ✅ **来源标注纪律**：一切阈值/权重/参数/回测数字带 ✅/⚠️/❌；回测数字加"~"并注"取自公开报告，以原文为准"；观点实例具体小数不得杜撰，写"以当期报告原文为准"
 - [ ] ✅ **禁止虚假精确**：无法核对到原文的数字一律标"推断"，不得写成引用
 - [ ] ✅ 产出文档结构齐全（references×3 + assets×3 + SKILL.md + scripts/screen.py）
+- [ ] ✅ 成品 skill 默认不读取 `assets/validation.md`；只有用户要求验证、复盘、可信度或历史命中率时才读取
 - [ ] ✅ 用 `package_skill.py` 校验通过（"Skill is valid"）；无该校验工具时按 §1/§9 人工逐条勾选替代
 - [ ] ✅ zip 打包与最新产出同步（含 validation.md）
 - [ ] ✅ 每 phase 完成写入 `.workbuddy/memory/YYYY-MM-DD.md`
