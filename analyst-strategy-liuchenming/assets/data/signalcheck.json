@@ -1,0 +1,653 @@
+{
+  "analyst": "liuchenming",
+  "as_of": "2026-07",
+  "fwd_field": "qa",
+  "fwd_unit": "pct",
+  "events": [
+    {
+      "event": "微盘股流动性危机",
+      "month": "2024-01",
+      "view": "跌破趋势线但属黑天鹅：'仅两次有效跌破均系黑天鹅'（2026.07富国演讲复盘所指第一例）",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "S5",
+        "S10"
+      ],
+      "trigger_details": [
+        {
+          "id": "S5",
+          "name": "利润增速差值风格",
+          "detail": "增速差 +5.0pct，近3月均值 +7.3 ≤ 前3月 +12.0 → 差值收窄，经济周期/价值类相对占优",
+          "strength": "direction"
+        },
+        {
+          "id": "S10",
+          "name": "主线调整充分性",
+          "detail": "主线自高点回撤 36.5%（阈值19.0%）、持续 10 个月（≈210 交易日，阈值21日）→ 双条件达标，调整充分（历史均值：21个交易日/19%）",
+          "strength": "mid"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": 9.7,
+      "fwd_3m": 12.4,
+      "fwd_unit": "pct",
+      "extras": {
+        "bull_market": false,
+        "black_swan": true,
+        "focus": "stable"
+      },
+      "readings": {
+        "ratio_ma100": 0.8713,
+        "ratio_ma20": 0.9353,
+        "tmt_share_anchor": 13,
+        "tmt_share_proxy": 7.9,
+        "ppi_yoy": -2.5,
+        "etf": 100,
+        "g_tmt": 12,
+        "gap": 5,
+        "deposit": 1.45,
+        "fiscal": 1.5
+      },
+      "fwd_tmt_1m": 20.32447943492017,
+      "fwd_tmt_3m": 19.340740195717764,
+      "fwd_div_1m": 6.589045033409868,
+      "fwd_div_3m": 8.275090858261102
+    },
+    {
+      "event": "924行情启动",
+      "month": "2024-09",
+      "view": "宽基ETF日均净流入371亿=第一高峰；牛市前提确立（全A站上MA100）",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "S5",
+        "S9"
+      ],
+      "trigger_details": [
+        {
+          "id": "S5",
+          "name": "利润增速差值风格",
+          "detail": "增速差 +3.0pct，近3月均值 +3.0 ≤ 前3月 +4.3 → 差值收窄，经济周期/价值类相对占优",
+          "strength": "direction"
+        },
+        {
+          "id": "S9",
+          "name": "宽基ETF净流入底部",
+          "detail": "宽基ETF日均净流入最新 371 亿元 ≥ 300 亿 → 历史第三高峰级别（对照：924行情371亿、对等关税期562亿），阶段性底部信号",
+          "strength": "strong"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": 1.9,
+      "fwd_3m": 0.9,
+      "fwd_unit": "pct",
+      "extras": {
+        "bull_market": false,
+        "black_swan": false,
+        "focus": "stable"
+      },
+      "readings": {
+        "ratio_ma100": 1.1668,
+        "ratio_ma20": 1.2197,
+        "tmt_share_anchor": 15,
+        "tmt_share_proxy": 9.0,
+        "ppi_yoy": -2.8,
+        "etf": 371,
+        "g_tmt": 12,
+        "gap": 3,
+        "deposit": 1.35,
+        "fiscal": 1.5
+      },
+      "fwd_tmt_1m": 7.946718894557736,
+      "fwd_tmt_3m": 10.117350444460072,
+      "fwd_div_1m": -6.665391654048136,
+      "fwd_div_3m": -2.0667486651846145
+    },
+    {
+      "event": "年度策略：财政发力",
+      "month": "2024-12",
+      "view": "广义财政发力→PPI回升→ROE上行；目标≥5pct（实际2025仅+1.5pct）",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "S2",
+        "S5"
+      ],
+      "trigger_details": [
+        {
+          "id": "S2",
+          "name": "二十日均线抄底",
+          "detail": "全A/MA20 最新 0.971 < 1.0（牛市中）→ 短线抄底信号，历史统计约1周、再跌2%后企稳",
+          "strength": "mid"
+        },
+        {
+          "id": "S5",
+          "name": "利润增速差值风格",
+          "detail": "科创创业板-沪深300 增速差 +8.0pct，近3月均值 +4.7 > 前3月 +3.0 → 差值扩大，景气成长占优",
+          "strength": "direction"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": -2.5,
+      "fwd_3m": 1.6,
+      "fwd_unit": "pct",
+      "extras": {
+        "bull_market": true,
+        "black_swan": false,
+        "focus": "stable"
+      },
+      "readings": {
+        "ratio_ma100": 1.0668,
+        "ratio_ma20": 0.9705,
+        "tmt_share_anchor": 18,
+        "tmt_share_proxy": 10.8,
+        "ppi_yoy": -2.3,
+        "etf": 120,
+        "g_tmt": 28,
+        "gap": 8,
+        "deposit": 1.1,
+        "fiscal": 1.5
+      },
+      "fwd_tmt_1m": 0.13511455257431138,
+      "fwd_tmt_3m": 3.6195960320540843,
+      "fwd_div_1m": -3.290513302875564,
+      "fwd_div_3m": -3.108662545910601
+    },
+    {
+      "event": "TMT拥挤度触及40%",
+      "month": "2025-02",
+      "view": "澎湃专访：达40%短期调整概率大；回落25-30%是较佳买点",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "S3",
+        "S5"
+      ],
+      "trigger_details": [
+        {
+          "id": "S3",
+          "name": "成交额占比拥挤度",
+          "detail": "TMT成交占比最新 40.0% ≥ 40.0% → 拥挤度警戒：短期调整概率大，不能再增配（减仓方向）",
+          "strength": "strong"
+        },
+        {
+          "id": "S5",
+          "name": "利润增速差值风格",
+          "detail": "科创创业板-沪深300 增速差 +20.0pct，近3月均值 +12.0 > 前3月 +3.0 → 差值扩大，景气成长占优",
+          "strength": "direction"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": -0.4,
+      "fwd_3m": -1.7,
+      "fwd_unit": "pct",
+      "extras": {
+        "bull_market": true,
+        "black_swan": false,
+        "focus": "growth"
+      },
+      "readings": {
+        "ratio_ma100": 1.0135,
+        "ratio_ma20": 1.0001,
+        "tmt_share_anchor": 40,
+        "tmt_share_proxy": 13.3,
+        "ppi_yoy": -2.2,
+        "etf": 120,
+        "g_tmt": 28,
+        "gap": 20,
+        "deposit": 1.1,
+        "fiscal": 1.5
+      },
+      "fwd_tmt_1m": -4.08233806634708,
+      "fwd_tmt_3m": -11.190045207709865,
+      "fwd_div_1m": 1.8137490233731457,
+      "fwd_div_3m": 2.5255805634784023
+    },
+    {
+      "event": "对等关税冲击",
+      "month": "2025-04",
+      "view": "宽基ETF日均净流入562亿=第二高峰；黑天鹅式跌破，V型修复",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "S3",
+        "S5",
+        "S9"
+      ],
+      "trigger_details": [
+        {
+          "id": "S3",
+          "name": "成交额占比拥挤度",
+          "detail": "TMT成交占比最新 28.0% 落入 25.0-30.0% 区间 → 较佳买点（买入方向）",
+          "strength": "mid"
+        },
+        {
+          "id": "S5",
+          "name": "利润增速差值风格",
+          "detail": "科创创业板-沪深300 增速差 +20.0pct，近3月均值 +20.0 > 前3月 +6.3 → 差值扩大，景气成长占优",
+          "strength": "direction"
+        },
+        {
+          "id": "S9",
+          "name": "宽基ETF净流入底部",
+          "detail": "宽基ETF日均净流入最新 562 亿元 ≥ 300 亿 → 历史第三高峰级别（对照：924行情371亿、对等关税期562亿），阶段性底部信号",
+          "strength": "strong"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": 2.1,
+      "fwd_3m": 10.8,
+      "fwd_unit": "pct",
+      "extras": {
+        "bull_market": true,
+        "black_swan": true,
+        "focus": "growth"
+      },
+      "readings": {
+        "ratio_ma100": 0.9736,
+        "ratio_ma20": 1.0088,
+        "tmt_share_anchor": 28,
+        "tmt_share_proxy": 9.4,
+        "ppi_yoy": -2.7,
+        "etf": 562,
+        "g_tmt": 28,
+        "gap": 20,
+        "deposit": 1.1,
+        "fiscal": 1.5
+      },
+      "fwd_tmt_1m": -1.3762973812470047,
+      "fwd_tmt_3m": 15.201393974595302,
+      "fwd_div_1m": 1.9474818271846273,
+      "fwd_div_3m": 2.675892073226649
+    },
+    {
+      "event": "红利现金替代",
+      "month": "2025-06",
+      "view": "大行1年定存利率下破1%（2025-05-20降至0.95）→红利优于定存",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "S3",
+        "S5",
+        "S12"
+      ],
+      "trigger_details": [
+        {
+          "id": "S3",
+          "name": "成交额占比拥挤度",
+          "detail": "TMT成交占比最新 28.0% 落入 25.0-30.0% 区间 → 较佳买点（买入方向）",
+          "strength": "mid"
+        },
+        {
+          "id": "S5",
+          "name": "利润增速差值风格",
+          "detail": "科创创业板-沪深300 增速差 +20.0pct，近3月均值 +20.0 > 前3月 +16.0 → 差值扩大，景气成长占优",
+          "strength": "direction"
+        },
+        {
+          "id": "S12",
+          "name": "红利现金替代",
+          "detail": "1年定存利率 0.95% < 1.0% 且红利股息率分位 82% ≥ 80%（位置低位）→ 红利优于现金/定存/理财（绝对收益逻辑，年化参考~9%）",
+          "strength": "mid"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": 4.3,
+      "fwd_3m": 18.6,
+      "fwd_unit": "pct",
+      "extras": {
+        "bull_market": true,
+        "black_swan": false,
+        "focus": "growth"
+      },
+      "readings": {
+        "ratio_ma100": 1.0285,
+        "ratio_ma20": 1.022,
+        "tmt_share_anchor": 28,
+        "tmt_share_proxy": 8.4,
+        "ppi_yoy": -3.6,
+        "etf": 180,
+        "g_tmt": 48,
+        "gap": 20,
+        "deposit": 0.95,
+        "fiscal": 1.5
+      },
+      "fwd_tmt_1m": 7.461779463381291,
+      "fwd_tmt_3m": 43.84678806152975,
+      "fwd_div_1m": 1.376089134348435,
+      "fwd_div_3m": 0.9393263909682759
+    },
+    {
+      "event": "ROE五年首次回升",
+      "month": "2026-03",
+      "view": "广义财政-PPI-ROE传导兑现：真实PPI于2026-02转正、连续回升",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "S1",
+        "S2",
+        "S5",
+        "S8",
+        "S12"
+      ],
+      "trigger_details": [
+        {
+          "id": "S1",
+          "name": "百日趋势线再布局",
+          "detail": "全A/MA100 最新 0.970 ≤ 1.0（牛市前提成立、无黑天鹅）→ 跌至趋势线=再布局节点",
+          "strength": "strong"
+        },
+        {
+          "id": "S2",
+          "name": "二十日均线抄底",
+          "detail": "全A/MA20 最新 0.962 < 1.0（牛市中）→ 短线抄底信号，历史统计约1周、再跌2%后企稳",
+          "strength": "mid"
+        },
+        {
+          "id": "S5",
+          "name": "利润增速差值风格",
+          "detail": "增速差 +35.0pct，近3月均值 +39.7 ≤ 前3月 +44.0 → 差值收窄，经济周期/价值类相对占优",
+          "strength": "direction"
+        },
+        {
+          "id": "S8",
+          "name": "财政-PPI-ROE传导",
+          "detail": "广义财政占GDP提升 +5.5pct ≥ 5.0pct 且 PPI 连续2月回升（最新 0.5%）→ PPI/ROE上行周期，经济周期类资产反转条件具备",
+          "strength": "strong"
+        },
+        {
+          "id": "S12",
+          "name": "红利现金替代",
+          "detail": "1年定存利率 0.95% < 1.0% 且红利股息率分位 82% ≥ 80%（位置低位）→ 红利优于现金/定存/理财（绝对收益逻辑，年化参考~9%）",
+          "strength": "mid"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": 8.6,
+      "fwd_3m": 12.1,
+      "fwd_unit": "pct",
+      "extras": {
+        "bull_market": true,
+        "black_swan": false,
+        "focus": "growth"
+      },
+      "readings": {
+        "ratio_ma100": 0.97,
+        "ratio_ma20": 0.9618,
+        "tmt_share_anchor": 33,
+        "tmt_share_proxy": 11.9,
+        "ppi_yoy": 0.5,
+        "etf": 120,
+        "g_tmt": 42,
+        "gap": 35,
+        "deposit": 0.95,
+        "fiscal": 5.5
+      },
+      "fwd_tmt_1m": 19.97870654649896,
+      "fwd_tmt_3m": 56.03962987591788,
+      "fwd_div_1m": 2.395663294255246,
+      "fwd_div_3m": -12.315092050245735
+    },
+    {
+      "event": "AI进二退一·第二次胜负手",
+      "month": "2026-07",
+      "view": "主线回撤+宽基ETF日均净流入305亿=第三高峰；'跌到趋势线=再布局'",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "S1",
+        "S2",
+        "S5",
+        "S6",
+        "S9",
+        "S10"
+      ],
+      "trigger_details": [
+        {
+          "id": "S1",
+          "name": "百日趋势线再布局",
+          "detail": "全A/MA100 最新 0.915 ≤ 1.0（牛市前提成立、无黑天鹅）→ 跌至趋势线=再布局节点",
+          "strength": "strong"
+        },
+        {
+          "id": "S2",
+          "name": "二十日均线抄底",
+          "detail": "全A/MA20 最新 0.961 < 1.0（牛市中）→ 短线抄底信号，历史统计约1周、再跌2%后企稳",
+          "strength": "mid"
+        },
+        {
+          "id": "S5",
+          "name": "利润增速差值风格",
+          "detail": "增速差 +25.0pct，近3月均值 +31.7 ≤ 前3月 +37.3 → 差值收窄，经济周期/价值类相对占优",
+          "strength": "direction"
+        },
+        {
+          "id": "S6",
+          "name": "景气拐点预警",
+          "detail": "增速 28.0% 由高位 55.0% 降至 30.0% 以下 → 景气拐点预警，市场表现将显著变差，规避该主线",
+          "strength": "strong"
+        },
+        {
+          "id": "S9",
+          "name": "宽基ETF净流入底部",
+          "detail": "宽基ETF日均净流入最新 305 亿元 ≥ 300 亿 → 历史第三高峰级别（对照：924行情371亿、对等关税期562亿），阶段性底部信号",
+          "strength": "strong"
+        },
+        {
+          "id": "S10",
+          "name": "主线调整充分性",
+          "detail": "主线自高点回撤 20.8%（阈值19.0%）、持续 1 个月（≈21 交易日，阈值21日）→ 双条件达标，调整充分（历史均值：21个交易日/19%）",
+          "strength": "mid"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": null,
+      "fwd_3m": null,
+      "fwd_unit": "pct",
+      "extras": {
+        "bull_market": true,
+        "black_swan": false,
+        "focus": "growth"
+      },
+      "readings": {
+        "ratio_ma100": 0.9148,
+        "ratio_ma20": 0.9607,
+        "tmt_share_anchor": 36,
+        "tmt_share_proxy": 24.8,
+        "ppi_yoy": 3.5,
+        "etf": 305,
+        "g_tmt": 28,
+        "gap": 25,
+        "deposit": 0.95,
+        "fiscal": 5.5
+      },
+      "fwd_tmt_1m": null,
+      "fwd_tmt_3m": null,
+      "fwd_div_1m": null,
+      "fwd_div_3m": null
+    },
+    {
+      "event": "景气拐点双经验值",
+      "month": "2026-08",
+      "view": "主线净利润增速降至30%下方→30%/-50%双阈值预警框架",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "S1",
+        "S2",
+        "S5",
+        "S6",
+        "S9",
+        "S10"
+      ],
+      "trigger_details": [
+        {
+          "id": "S1",
+          "name": "百日趋势线再布局",
+          "detail": "全A/MA100 最新 0.915 ≤ 1.0（牛市前提成立、无黑天鹅）→ 跌至趋势线=再布局节点",
+          "strength": "strong"
+        },
+        {
+          "id": "S2",
+          "name": "二十日均线抄底",
+          "detail": "全A/MA20 最新 0.961 < 1.0（牛市中）→ 短线抄底信号，历史统计约1周、再跌2%后企稳",
+          "strength": "mid"
+        },
+        {
+          "id": "S5",
+          "name": "利润增速差值风格",
+          "detail": "增速差 +25.0pct，近3月均值 +31.7 ≤ 前3月 +37.3 → 差值收窄，经济周期/价值类相对占优",
+          "strength": "direction"
+        },
+        {
+          "id": "S6",
+          "name": "景气拐点预警",
+          "detail": "增速 28.0% 由高位 55.0% 降至 30.0% 以下 → 景气拐点预警，市场表现将显著变差，规避该主线",
+          "strength": "strong"
+        },
+        {
+          "id": "S9",
+          "name": "宽基ETF净流入底部",
+          "detail": "宽基ETF日均净流入最新 305 亿元 ≥ 300 亿 → 历史第三高峰级别（对照：924行情371亿、对等关税期562亿），阶段性底部信号",
+          "strength": "strong"
+        },
+        {
+          "id": "S10",
+          "name": "主线调整充分性",
+          "detail": "主线自高点回撤 20.8%（阈值19.0%）、持续 1 个月（≈21 交易日，阈值21日）→ 双条件达标，调整充分（历史均值：21个交易日/19%）",
+          "strength": "mid"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": null,
+      "fwd_3m": null,
+      "fwd_unit": "pct",
+      "extras": {
+        "bull_market": true,
+        "black_swan": false,
+        "focus": "growth"
+      },
+      "readings": {
+        "ratio_ma100": 0.9148,
+        "ratio_ma20": 0.9607,
+        "tmt_share_anchor": 36,
+        "tmt_share_proxy": 24.8,
+        "ppi_yoy": 3.5,
+        "etf": 305,
+        "g_tmt": 28,
+        "gap": 25,
+        "deposit": 0.95,
+        "fiscal": 5.5
+      },
+      "fwd_tmt_1m": null,
+      "fwd_tmt_3m": null,
+      "fwd_div_1m": null,
+      "fwd_div_3m": null
+    }
+  ],
+  "latest_snapshot": [
+    {
+      "id": "S1",
+      "name": "百日趋势线再布局",
+      "triggered": true,
+      "detail": "全A/MA100 最新 0.915 ≤ 1.0（牛市前提成立、无黑天鹅）→ 跌至趋势线=再布局节点",
+      "strength": "strong"
+    },
+    {
+      "id": "S2",
+      "name": "二十日均线抄底",
+      "triggered": true,
+      "detail": "全A/MA20 最新 0.961 < 1.0（牛市中）→ 短线抄底信号，历史统计约1周、再跌2%后企稳",
+      "strength": "mid"
+    },
+    {
+      "id": "S3",
+      "name": "成交额占比拥挤度",
+      "triggered": false,
+      "detail": "TMT成交占比最新 36.0%（警戒线 40.0%、买点区 25.0-30.0%）→ 中性区间",
+      "strength": "direction"
+    },
+    {
+      "id": "S4",
+      "name": "市场反应度二七法则",
+      "triggered": false,
+      "detail": "景气成长类（买20卖80） 反应度最新 35%（买 20.0% / 卖 80.0%）→ 中性区间（20-60%无显著规律）",
+      "strength": "direction"
+    },
+    {
+      "id": "S5",
+      "name": "利润增速差值风格",
+      "triggered": true,
+      "detail": "增速差 +25.0pct，近3月均值 +31.7 ≤ 前3月 +37.3 → 差值收窄，经济周期/价值类相对占优",
+      "strength": "direction"
+    },
+    {
+      "id": "S6",
+      "name": "景气拐点预警",
+      "triggered": true,
+      "detail": "增速 28.0% 由高位 55.0% 降至 30.0% 以下 → 景气拐点预警，市场表现将显著变差，规避该主线",
+      "strength": "strong"
+    },
+    {
+      "id": "S7",
+      "name": "渗透率天花板",
+      "triggered": false,
+      "detail": "产业渗透率最新 20.0% < 40.0% → 早期阶段，空间广阔",
+      "strength": "direction"
+    },
+    {
+      "id": "S8",
+      "name": "财政-PPI-ROE传导",
+      "triggered": false,
+      "detail": "广义财政提升 +5.5pct（1.0-5.0pct 区间）→ 托底而非上行周期，周期类资产震荡对待",
+      "strength": "direction"
+    },
+    {
+      "id": "S9",
+      "name": "宽基ETF净流入底部",
+      "triggered": true,
+      "detail": "宽基ETF日均净流入最新 305 亿元 ≥ 300 亿 → 历史第三高峰级别（对照：924行情371亿、对等关税期562亿），阶段性底部信号",
+      "strength": "strong"
+    },
+    {
+      "id": "S10",
+      "name": "主线调整充分性",
+      "triggered": true,
+      "detail": "主线自高点回撤 20.8%（阈值19.0%）、持续 1 个月（≈21 交易日，阈值21日）→ 双条件达标，调整充分（历史均值：21个交易日/19%）",
+      "strength": "mid"
+    },
+    {
+      "id": "S11",
+      "name": "困境反转恢复率",
+      "triggered": false,
+      "detail": "净利润恢复率 60% < 及格线 70% → 收益率明显下滑，规避",
+      "strength": "direction"
+    },
+    {
+      "id": "S12",
+      "name": "红利现金替代",
+      "triggered": false,
+      "detail": "定存 0.95%、股息率分位 78%（阈值：<1.0% 且 ≥80.0%）→ 未同时满足",
+      "strength": "direction"
+    }
+  ],
+  "snapshot": {
+    "month": "2026-07",
+    "aug_partial_qa": 2.4161978722955,
+    "aug_partial_tmt": 1.287384206942721,
+    "signals_now": [
+      "S1",
+      "S2",
+      "S5",
+      "S6",
+      "S9",
+      "S10"
+    ],
+    "readings_now": {
+      "ratio_ma100": 0.9148,
+      "tmt_dd_pct": -20.8,
+      "ppi_yoy": 3.5
+    }
+  }
+}

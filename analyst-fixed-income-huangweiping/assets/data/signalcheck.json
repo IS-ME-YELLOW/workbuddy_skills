@@ -1,0 +1,310 @@
+{
+ "analyst": "huangweiping",
+ "as_of": "2026-08",
+ "fwd_field": "c10y",
+ "fwd_unit": "bp",
+ "events": [
+  {
+   "event": "2024.9.24 央行降准降息组合拳 + 9.26 政治局会议，债市先急跌后修复，长端利率快速下行",
+   "month": "2024-09",
+   "view": "⚠️ 框架外推：政策利率下调（OMO 1.7→1.5%、MLF 2.3→2.0%）打开广谱利率下行空间，利率中枢随政策利率逐级下移",
+   "view_grade": "⚠️",
+   "expect": "S3 传导顺畅 / S6 定价锚向资金利率切换 / 10Y 中枢下移",
+   "triggers": [
+    "S13"
+   ],
+   "trigger_details": [
+    {
+     "id": "S13",
+     "name": "资产性价比排序",
+     "detail": "10Y 2.15% vs 8-9 月区间 1.75-1.85%（防守） → 逼近区间上沿 → 超长/长久期配置价值显现",
+     "strength": "strong"
+    }
+   ],
+   "align": "partial",
+   "fwd_1m": 4.4,
+   "fwd_3m": -17.3,
+   "fwd_unit": "bp"
+  },
+  {
+   "event": "2025.1 资金面阶段性收紧（跨年+政府债供给），央行暂停购债预期升温，长端小幅调整",
+   "month": "2025-01",
+   "view": "⚠️ 框架外推：资金面扰动不改宽货币方向；暂停购债=相机抉择，短端承压、长端影响有限",
+   "view_grade": "⚠️",
+   "expect": "S4 资金收敛触发或接近 / S6 未切换",
+   "triggers": [
+    "S3",
+    "S4",
+    "S13"
+   ],
+   "trigger_details": [
+    {
+     "id": "S3",
+     "name": "货币政策框架状态",
+     "detail": "DR001-OMO 利差 5BP vs 传导顺畅基准 10BP → 传导顺畅",
+     "strength": "mid"
+    },
+    {
+     "id": "S4",
+     "name": "资金面松紧",
+     "detail": "DR007 均值 0.018% vs OMO 0.015% → 偏离 +28BP（收敛阈值 15BP）→ 资金收敛",
+     "strength": "strong"
+    },
+    {
+     "id": "S13",
+     "name": "资产性价比排序",
+     "detail": "10Y 1.62% vs Q4 区间 1.65-1.75% → 逼近区间下沿 → 止盈/防回调",
+     "strength": "strong"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": 0.7,
+   "fwd_3m": 19.7,
+   "fwd_unit": "bp"
+  },
+  {
+   "event": "2025.5.8 央行降息（OMO 1.5%→1.4%）+ 5.15 降准 0.5pct，利多落地",
+   "month": "2025-05",
+   "view": "⚠️ 框架外推：降准降息落地=利多兑现；政策利率下移→DR 中枢下移→10Y 定价锚溢价被动走阔",
+   "view_grade": "⚠️",
+   "expect": "S3 传导顺畅 / S4 资金平稳 / 10Y 缓步下行",
+   "triggers": [
+    "S4",
+    "S13"
+   ],
+   "trigger_details": [
+    {
+     "id": "S4",
+     "name": "资金面松紧",
+     "detail": "DR007 均值 0.018% vs OMO 0.015% → 偏离 +28BP（收敛阈值 15BP）→ 资金收敛",
+     "strength": "strong"
+    },
+    {
+     "id": "S13",
+     "name": "资产性价比排序",
+     "detail": "10Y 1.63% vs Q4 区间 1.65-1.75% → 逼近区间下沿 → 止盈/防回调",
+     "strength": "strong"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": 4.9,
+   "fwd_3m": 7.9,
+   "fwd_unit": "bp"
+  },
+  {
+   "event": "2025.8 债市进入 8-9 月防守窗口（黄伟平框架：政策观察期，久期偏防御）",
+   "month": "2025-08",
+   "view": "✅ 原文：2026.6.9 中期策略延续 8-9 月防守思路（政策部署习惯+银行信贷投放规律）",
+   "view_grade": "✅",
+   "expect": "S13 防守信号（10Y 1.71% < 8-9 月下沿 1.75%，止盈/防回调）/ S4 资金偏紧",
+   "triggers": [
+    "S3",
+    "S4",
+    "S13"
+   ],
+   "trigger_details": [
+    {
+     "id": "S3",
+     "name": "货币政策框架状态",
+     "detail": "DR001-OMO 利差 -8BP vs 传导顺畅基准 10BP → 传导顺畅",
+     "strength": "mid"
+    },
+    {
+     "id": "S4",
+     "name": "资金面松紧",
+     "detail": "DR007 均值 0.017% vs OMO 0.014% → 偏离 +33BP（收敛阈值 15BP）→ 资金收敛",
+     "strength": "strong"
+    },
+    {
+     "id": "S13",
+     "name": "资产性价比排序",
+     "detail": "10Y 1.71% vs 8-9 月区间 1.75-1.85%（防守） → 逼近区间下沿 → 止盈/防回调",
+     "strength": "strong"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": 11.8,
+   "fwd_3m": 8.4,
+   "fwd_unit": "bp"
+  },
+  {
+   "event": "2026.6 中期策略发布：10Y 区间 1.70-1.80%（6-7 月）、8-9 月 1.75-1.85% 防守",
+   "month": "2026-06",
+   "view": "✅ 原文：2026.6.9 中期策略（10Y 6-7 月区间上沿 1.80%、8-9 月防守）",
+   "view_grade": "✅",
+   "expect": "10Y 运行于区间内 / S13 逼近下沿止盈（1.70% 恰为下沿）",
+   "triggers": [
+    "S1",
+    "S3",
+    "S4",
+    "S6",
+    "S13"
+   ],
+   "trigger_details": [
+    {
+     "id": "S1",
+     "name": "核心矛盾阶段",
+     "detail": "社融同比 7.4% + PPI 连续环比改善 7 月 → 阶段：物价+资金流向（物价回升斜率确认）",
+     "strength": "strong"
+    },
+    {
+     "id": "S3",
+     "name": "货币政策框架状态",
+     "detail": "DR001-OMO 利差 -7BP vs 传导顺畅基准 10BP → 传导顺畅",
+     "strength": "mid"
+    },
+    {
+     "id": "S4",
+     "name": "资金面松紧",
+     "detail": "DR007 均值 0.016% vs OMO 0.014% → 偏离 +15BP（收敛阈值 15BP）→ 资金收敛",
+     "strength": "strong"
+    },
+    {
+     "id": "S6",
+     "name": "长债定价锚切换",
+     "detail": "10Y 1.70%：政策利率锚溢价 0.30pp vs 资金利率锚溢价 0.28pp → 定价锚切换至资金利率",
+     "strength": "strong"
+    },
+    {
+     "id": "S13",
+     "name": "资产性价比排序",
+     "detail": "10Y 1.70% vs 6-7 月区间 1.70-1.80% → 逼近区间下沿 → 止盈/防回调",
+     "strength": "strong"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": 4.7,
+   "fwd_3m": null,
+   "fwd_unit": "bp"
+  },
+  {
+   "event": "2026.8.3 二永债三位一体定价框架 + 2026.8.17 存单报告：信用利差 70%/10% 分位极值、永续-二债利差>15BP 积极超配",
+   "month": "2026-08",
+   "view": "✅ 原文：2026.8.3 二永债框架（分位 70% 顶/10% 底）；2026.8.10 品种利差（>15BP 积极超配永续）",
+   "view_grade": "✅",
+   "expect": "S8/S9 分位极值判定、S11 品种利差轮动、S13 逼近区间下沿止盈",
+   "triggers": [
+    "S3",
+    "S6",
+    "S13"
+   ],
+   "trigger_details": [
+    {
+     "id": "S3",
+     "name": "货币政策框架状态",
+     "detail": "DR001-OMO 利差 2BP vs 传导顺畅基准 10BP → 传导顺畅",
+     "strength": "mid"
+    },
+    {
+     "id": "S6",
+     "name": "长债定价锚切换",
+     "detail": "10Y 1.72%：政策利率锚溢价 0.32pp vs 资金利率锚溢价 0.30pp → 定价锚切换至资金利率",
+     "strength": "strong"
+    },
+    {
+     "id": "S13",
+     "name": "资产性价比排序",
+     "detail": "10Y 1.72% vs 8-9 月区间 1.75-1.85%（防守） → 逼近区间下沿 → 止盈/防回调",
+     "strength": "strong"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": null,
+   "fwd_3m": null,
+   "fwd_unit": "bp"
+  }
+ ],
+ "latest_snapshot": [
+  {
+   "id": "S1",
+   "name": "核心矛盾阶段",
+   "triggered": false,
+   "detail": "社融同比 7.4% + PPI 连续环比改善 0 月 → 阶段：信用收缩/资产配置再平衡",
+   "strength": "mid"
+  },
+  {
+   "id": "S2",
+   "name": "物价回升斜率",
+   "triggered": false,
+   "detail": "PPI 连续环比改善 0 月、CPI 连续 0 月 → 斜率未确认（2-3 季度为逆风重点）",
+   "strength": "direction"
+  },
+  {
+   "id": "S3",
+   "name": "货币政策框架状态",
+   "triggered": true,
+   "detail": "DR001-OMO 利差 2BP vs 传导顺畅基准 10BP → 传导顺畅",
+   "strength": "mid"
+  },
+  {
+   "id": "S4",
+   "name": "资金面松紧",
+   "triggered": false,
+   "detail": "DR007 均值 0.015% vs OMO 0.014% → 偏离 +14BP（收敛阈值 15BP）→ 资金平稳/宽松",
+   "strength": "direction"
+  },
+  {
+   "id": "S5",
+   "name": "存单利差脉冲",
+   "triggered": false,
+   "detail": "存单-OMO 利差 8BP（滚动 1 年分位 5%）→ 低中枢常态",
+   "strength": "direction"
+  },
+  {
+   "id": "S6",
+   "name": "长债定价锚切换",
+   "triggered": true,
+   "detail": "10Y 1.72%：政策利率锚溢价 0.32pp vs 资金利率锚溢价 0.30pp → 定价锚切换至资金利率",
+   "strength": "strong"
+  },
+  {
+   "id": "S7",
+   "name": "期限利差",
+   "triggered": false,
+   "detail": "10-1Y 55BP（分位 48%）、30-10Y 47BP（分位 86%）→ 利差中性/偏窄",
+   "strength": "direction"
+  },
+  {
+   "id": "S8",
+   "name": "二永债利差高位",
+   "triggered": false,
+   "detail": "缺字段 credit_spread / credit_spread_pctile",
+   "strength": "direction"
+  },
+  {
+   "id": "S9",
+   "name": "二永债利差低位",
+   "triggered": false,
+   "detail": "缺字段 credit_spread / credit_spread_pctile",
+   "strength": "direction"
+  },
+  {
+   "id": "S10",
+   "name": "布林带波段",
+   "triggered": false,
+   "detail": "信用利差数据缺失/序列过短 → 降级未验证",
+   "strength": "direction"
+  },
+  {
+   "id": "S11",
+   "name": "品种利差轮动",
+   "triggered": false,
+   "detail": "缺字段 spread_btn（永续-二债利差 BP）",
+   "strength": "direction"
+  },
+  {
+   "id": "S12",
+   "name": "机构行为异动",
+   "triggered": false,
+   "detail": "机构净买入数据缺失 → 降级未验证",
+   "strength": "direction"
+  },
+  {
+   "id": "S13",
+   "name": "资产性价比排序",
+   "triggered": true,
+   "detail": "10Y 1.72% vs 8-9 月区间 1.75-1.85%（防守） → 逼近区间下沿 → 止盈/防回调",
+   "strength": "strong"
+  }
+ ]
+}

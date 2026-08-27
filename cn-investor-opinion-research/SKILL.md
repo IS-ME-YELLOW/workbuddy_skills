@@ -1,138 +1,95 @@
 ---
 name: cn-investor-opinion-research
-description: "Research and archive the public opinions of a Chinese public fund manager, analyst, or investor on the A-share market, macro economy, or specific sectors. Collect authoritative sources via web and WeChat search, fetch full text, grade reliability by source type, and save original-source markdown files to the workspace. Use when a user asks to gather, organize, or archive a named Chinese market figure's views (e.g. 'XX 的观点 / 公开信息 / 研究报告 / 路演纪要 / 访谈'), or to trace how that person's views evolved over time."
+description: "检索并归档中国公募基金经理、分析师或投资人对 A 股市场、宏观经济或特定板块的公开观点。通过网页搜索和微信搜索收集权威信源，抓取全文，按信源类型分级，并将原始信源 markdown 文件保存到工作区。当用户要求收集、整理或归档某位中国资本市场人物的观点时使用（如「XX 的观点 / 公开信息 / 研究报告 / 路演纪要 / 访谈」），或追溯此人观点如何随时间演变时使用。"
 agent_created: true
 ---
 
-# CN Investor Opinion Research
+# 中国投资人观点研究
 
-## Overview
+## 概述
 
-A repeatable pipeline for researching a named Chinese public-figure investor
-(fund manager / strategist / analyst) and archiving their public market views
-as graded, source-attributed markdown. The pipeline enforces an authority-first
-collection order and a saturation-based stop rule so the result is
-reproducible and defensible.
+一套可复用的研究流程，用于研究某位中国资本市场公开人物（基金经理 / 策略师 / 分析师）并将其公开市场观点归档为带分级标注、注明信源出处的 markdown 文件。该流程强制执行权威优先的收集顺序和基于饱和度的停止规则，确保结果可复现、可辩护。
 
-## When to use
+## 适用场景
 
 - "收集/整理 XX 202X 年关于 A 股/宏观的公开观点"
 - "把 XX 的研究报告、路演、访谈存成 markdown"
 - "追溯 XX 对 AI / 出海 / 地产 的看法演变"
-- Any task that names a Chinese market figure + asks for public opinions with
-  an implied (or explicit) authority preference: 定期报告 > 路演/纪要 > 媒体 >
-  社媒.
+- 任何提及中国资本市场人物 + 要求公开观点，且隐含（或明确）权威偏好：定期报告 > 路演/纪要 > 媒体 > 社媒的任务。
 
-If the figure is overseas or the request is about a company/event (not a
-person's opinions), this skill does not apply.
+如果人物是海外人士，或需求是关于公司/事件（而非个人观点），则本技能不适用。
 
-## Workflow
+## 工作流程
 
-### Phase 0 — Derive the plan from user constraints
+### 阶段 0 — 从用户约束中推导执行计划
 
-Do NOT invent a plan. Extract two constraints from the request and turn them
-into a tracked task list (`TaskCreate`):
+不要自行编造计划。从需求中提取两个约束条件，并将其转化为跟踪任务列表（`TaskCreate`）：
 
-1. **Time window** — single year? range (e.g. "2024 至今")?
-2. **Authority priority** — default order if unspecified:
-   定期报告/官方纪要 (A) → 路演/会议实录 (B) → 权威媒体 (C) → 个人社媒/二次解读 (D).
-   See `references/grading.md` for the full rubric.
+1. **时间窗口** — 单一年份？范围（如"2024 至今"）？
+2. **权威优先级** — 如未指定，默认顺序：
+   定期报告/官方纪要（A） → 路演/会议实录（B） → 权威媒体（C） → 个人社媒/二次解读（D）。
+   详见 `references/grading.md` 中的完整分级标准。
 
-Create one task per pipeline stage: 检索 → (分级)抓取原文 → 归档+索引. Mark
-`in_progress` on the first before searching.
+为每个流程阶段创建一个任务：检索 → （分级）抓取原文 → 归档+索引。在开始搜索前，将第一个任务标记为 `in_progress`。
 
-**Adaptive planning (critical):** The very first search often reveals a
-biographical fact that reshapes the plan. For a fund manager, check current
-employment status early — if they have left public funds / moved to private
-(私募), the highest-priority tier (fund quarterly reports) will be EMPTY for
-recent years. Re-center the plan on the next available tier (roadshow
-transcripts, interviews) and record the gap as an explicit exclusion rather
-than a failure.
+**自适应规划（关键）：** 首次搜索通常会发现一个能重塑执行计划的履历事实。对于基金经理，尽早确认当前任职状态 — 如果已离开公募/转投私募，则最高优先级层级（基金季报）在近年内将为空。应重新将执行计划聚焦于下一个可用层级（路演实录、访谈），并将该缺口记录为明确的排除项，而非失败。
 
-### Phase 1 — Search
+### 阶段 1 — 搜索
 
-Run searches in PARALLEL where independent. Two channels:
+对相互独立的搜索并行执行。两个渠道：
 
-**A. WebSearch** — primary channel. Always pass BOTH `query` and
-`query_keyword_groups` (an array of 3–4 short phrase strings covering different
-angles: e.g. "{name} {year} 季报 展望", "{name} 路演 纪要", "{name} 访谈 实录",
-"{name} {topic} 观点"). The `query_keyword_groups` field drives the多角度
-fan-out; never send only a single bare query.
+**A. WebSearch** — 主渠道。始终同时传入 `query` 和 `query_keyword_groups`（一个包含 3-4 个短词组字符串的数组，覆盖不同角度：例如"{姓名} {年份} 季报 展望"、"{姓名} 路演 纪要"、"{姓名} 访谈 实录"、"{姓名} {主题} 观点"）。`query_keyword_groups` 字段驱动多角度展开；切勿只发送单个裸查询。
 
-> ⚠️ FORMAT TRAP: `query_keyword_groups` MUST be a JSON array of strings, e.g.
-> `["a","b","c"]`. A malformed structure (nested/missing brackets) fails
-> silently or returns garbage. Build it carefully.
+> ⚠️ 格式陷阱：`query_keyword_groups` 必须是一个 JSON 字符串数组，例如 `["a","b","c"]`。格式错误的结构（嵌套/缺失括号）会静默失败或返回垃圾数据。请仔细构建。
 
-**B. WeChat articles** — invoke the `wechat-article-search` skill (deep-research
-plugin). It runs `scripts/sogou_search.py` under the hood. Typical call:
-`Skill skill: wechat-article-search` with args like "{name} {year} 观点", then
-the underlying Bash `sogou_search.py "{name}" --count 10 --time-range
-YYYY-MM-DD YYYY-MM-DD`. WeChat is best for 纪要/转载/雪球-like reposts.
+**B. 微信文章** — 调用 `wechat-article-search` 技能（deep-research 插件）。底层运行 `scripts/sogou_search.py`。典型调用方式：`Skill skill: wechat-article-search`，参数如"{姓名} {年份} 观点"，然后底层 Bash 执行 `sogou_search.py "{姓名}" --count 10 --time-range YYYY-MM-DD YYYY-MM-DD`。微信最适合查找纪要/转载/雪球类转发。
 
-Search-sequence pattern that worked well:
-1. Broad "name + year + 市场观点" → surfaces the figure's status & top sources.
-2. "name + 离任/现状/私募/新东家" → confirms employment (reshapes plan).
-3. "name + 访谈实录/路演" → finds transcripts.
-4. "name + 具体议题 (AI/出海/地产)" → deepens topical coverage.
-5. A final "name + 权威媒体名 (聪明投资者/中国证券报/钛媒体)" search to catch
-   high-tier interviews missed above.
+已验证有效的搜索序列模式：
+1. 宽泛搜索"姓名 + 年份 + 市场观点" → 发现人物的地位和顶级信源。
+2. "姓名 + 离任/现状/私募/新东家" → 确认任职情况（重塑执行计划）。
+3. "姓名 + 访谈实录/路演" → 找到实录文本。
+4. "姓名 + 具体议题（AI/出海/地产）" → 深化主题覆盖。
+5. 最后进行一次"姓名 + 权威媒体名（聪明投资者/中国证券报/钛媒体）"搜索，以捕获上述步骤遗漏的高层级访谈。
 
-### Phase 2 — Fetch full text
+### 阶段 2 — 抓取全文
 
-For each promising URL, use `WebFetch` with a prompt that demands VERBATIM
-extraction: "完整提取全文原文，包括标题/发布时间/来源/全部正文，逐字保留，不要摘要".
-For dialogue transcripts, ask to preserve every Q&A turn. If WebFetch returns a
-paywall/truncated page, try an alternate mirror URL from the same source or a
-different aggregator (toutiao / qq / eastmoney / xueqiu often mirror each
-other).
+对于每个有希望的 URL，使用 `WebFetch` 并附带要求逐字提取的提示词："完整提取全文原文，包括标题/发布时间/来源/全部正文，逐字保留，不要摘要"。对于对话实录，要求保留每一个问答回合。如果 WebFetch 返回付费墙/截断页面，尝试从同一来源或不同聚合器（头条/QQ/东方财富/雪球通常互相转载）寻找替代镜像 URL。
 
-### Phase 3 — Grade & archive
+### 阶段 3 — 分级与归档
 
-Assign each captured source a tier (A–D) per `references/grading.md`. Write one
-markdown file per source into a dated folder, e.g.
-`{workspace}/XX公开观点资料/`. Filename convention:
-`NN_来源_主题.md` where NN is a zero-padded ordinal keeping chronological order
-(e.g. `01_中金财富云会客厅_官方纪要.md`, `11_2024Q1_一季报观点.md`). Prefix
-quarterly-report files with the year-quarter so they sort before later years.
+根据 `references/grading.md` 为每个捕获的信源分配层级（A-D）。每个信源写入一个 markdown 文件，放入带日期的文件夹，例如 `{workspace}/XX公开观点资料/`。文件命名规范：`NN_来源_主题.md`，其中 NN 是保持时间顺序的零填充序号（例如 `01_中金财富云会客厅_官方纪要.md`、`11_2024Q1_一季报观点.md`）。季报文件以年份-季度为前缀，使其排在后续年份之前。
 
-Always write an `00_索引与信源可靠性说明.md` index file containing:
-- A timeline of the figure's status changes (employment, key dates).
-- The full graded source list with URLs + dates + tier.
-- Explicit exclusions / pitfalls found (see `references/pitfalls.md`).
+务必编写一个 `00_索引与信源可靠性说明.md` 索引文件，包含：
+- 人物状态变化时间线（任职变动、关键日期）。
+- 完整的带分级信源列表，含 URL + 日期 + 层级。
+- 明确的排除项 / 发现的陷阱（参见 `references/pitfalls.md`）。
 
-### Phase 4 — Stop / sufficiency check
+### 阶段 4 — 停止 / 充分性检查
 
-Stop searching only when ALL hold (see `references/pitfalls.md` "Stop signals"):
-1. **Saturation** — new keyword groups keep returning the same core sources
-   (only reposts/derivatives of already-captured material).
-2. **Tier coverage** — at least one representative in each requested tier.
-3. **Timeline closure** — the requested window is continuous (e.g. every
-   quarterly report present; no unexplained gaps).
-4. **Explicit boundaries** — state what is NOT findable (e.g. "私募运作报告不
-   公开", "7–8 月无新增发声") so silence is documented, not hidden.
+仅在以下所有条件同时满足时停止搜索（参见 `references/pitfalls.md` 中的"停止信号"）：
+1. **饱和度** — 新的关键词组持续返回相同的核心信源（仅为已捕获材料的转载/衍生品）。
+2. **层级覆盖** — 每个要求的层级至少有一个代表性信源。
+3. **时间线闭合** — 要求的时间窗口连续（例如每份季报都在场；无未解释的缺口）。
+4. **明确边界** — 声明哪些内容无法找到（例如"私募运作报告不公开"、"7-8 月无新增发声"），使沉默有记录，而非隐藏。
 
-## Reliability tiers (summary)
+## 可靠性分级（概要）
 
-A — 一手/亲述: 基金定期报告经理展望、持牌机构官方路演纪要、本人署名文章.
-B — 逐字实录: 80 分钟级对话全文、会议实录.
-C — 权威媒体: 新华社系/中国证券报/财联社/钛媒体/东方财富等记者稿.
-D — 社媒/二次解读: 雪球/公众号个人文、含作者评论的摘编 — 引用时必须区分
-"本人原话" vs "作者解读".
+A — 一手/亲述：基金定期报告经理展望、持牌机构官方路演纪要、本人署名文章。
+B — 逐字实录：80 分钟级对话全文、会议实录。
+C — 权威媒体：新华社系/中国证券报/财联社/钛媒体/东方财富等记者稿。
+D — 社媒/二次解读：雪球/公众号个人文、含作者评论的摘编 — 引用时必须区分"本人原话" vs "作者解读"。
 
-Full rubric + worked examples: `references/grading.md`.
-Known traps (successor misattribution, WeChat time-filter padding, JSON
-mistakes): `references/pitfalls.md`.
+完整分级标准及案例：`references/grading.md`。
+已知陷阱（继任者归属错误、微信时间过滤填充、JSON 格式错误）：`references/pitfalls.md`。
 
-## Output structure
+## 输出结构
 
 ```
 {workspace}/XX公开观点资料/
 ├── 00_索引与信源可靠性说明.md
-├── 01_...md  (A/B tier, chronological)
+├── 01_...md  （A/B 层级，按时间排序）
 ├── ...
-└── NN_...md  (D tier last)
+└── NN_...md  （D 层级排在最后）
 ```
 
-Present the index + key files with `present_files` at the end; in the summary
-call out (a) the reshaped plan if employment changed, (b) the top-tier source
-for the year, (c) cross-year view evolution, (d) excluded pitfalls.
+结束时使用 `present_files` 展示索引和关键文件；在摘要中说明 (a) 若任职变动导致执行计划调整的情况，(b) 该年度最高层级信源，(c) 跨年度观点演变，(d) 已排除的陷阱。

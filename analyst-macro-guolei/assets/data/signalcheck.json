@@ -1,0 +1,181 @@
+{
+  "analyst": "guolei",
+  "as_of": "2026-07",
+  "fwd_field": "hs300",
+  "fwd_unit": "pct",
+  "events": [
+    {
+      "event": "924政策底前夕",
+      "month": "2024-08",
+      "view": "",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "ODD"
+      ],
+      "trigger_details": [
+        {
+          "id": "ODD",
+          "name": "E/P 赔率分位",
+          "detail": "E/P 分位 99%（>90% 为赔率极佳）",
+          "strength": "strong"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": 21.0,
+      "fwd_3m": 17.9,
+      "fwd_unit": "pct",
+      "m1": -3.0,
+      "ppi": -1.0,
+      "pmi": 49.1,
+      "score": -0.19070404247053638,
+      "ep_pct": 99.1790661877886,
+      "signal": "胜率−|赔率极佳"
+    },
+    {
+      "event": "924行情启动当月",
+      "month": "2024-09",
+      "view": "",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [],
+      "trigger_details": [],
+      "align": "n/a",
+      "fwd_1m": -3.2,
+      "fwd_3m": -2.1,
+      "fwd_unit": "pct",
+      "m1": -3.3,
+      "ppi": -2.8,
+      "pmi": 49.8,
+      "score": -0.2930212512351821,
+      "ep_pct": 87.10005078720162,
+      "signal": "胜率−|赔率中性"
+    },
+    {
+      "event": "对等关税冲击底部",
+      "month": "2025-04",
+      "view": "",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "WIN"
+      ],
+      "trigger_details": [
+        {
+          "id": "WIN",
+          "name": "三因子胜率(M1-BCI-PPI)",
+          "detail": "综合得分 +0.17（>0 为胜率+）",
+          "strength": "strong"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": 1.8,
+      "fwd_3m": 8.1,
+      "fwd_unit": "pct",
+      "m1": 1.5,
+      "ppi": -2.7,
+      "pmi": 49.0,
+      "score": 0.16701748725699855,
+      "ep_pct": 89.65353583293782,
+      "signal": "胜率+|赔率中性"
+    },
+    {
+      "event": "M1回升+PPI见底",
+      "month": "2025-08",
+      "view": "",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "WIN"
+      ],
+      "trigger_details": [
+        {
+          "id": "WIN",
+          "name": "三因子胜率(M1-BCI-PPI)",
+          "detail": "综合得分 +0.31（>0 为胜率+）",
+          "strength": "strong"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": 3.2,
+      "fwd_3m": 0.7,
+      "fwd_unit": "pct",
+      "m1": 6.0,
+      "ppi": -2.9,
+      "pmi": 49.4,
+      "score": 0.31498837480905484,
+      "ep_pct": 40.02738475581926,
+      "signal": "胜率+|赔率中性"
+    },
+    {
+      "event": "指数年内高点(4979)",
+      "month": "2026-06",
+      "view": "",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [],
+      "trigger_details": [],
+      "align": "n/a",
+      "fwd_1m": -7.9,
+      "fwd_3m": null,
+      "fwd_unit": "pct",
+      "m1": 4.0,
+      "ppi": 4.1,
+      "pmi": 50.3,
+      "score": -0.03204525164461838,
+      "ep_pct": 37.185929648241206,
+      "signal": "胜率−|赔率中性"
+    },
+    {
+      "event": "PMI回落+单月-7.8%",
+      "month": "2026-07",
+      "view": "",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [],
+      "trigger_details": [],
+      "align": "n/a",
+      "fwd_1m": 0.0,
+      "fwd_3m": null,
+      "fwd_unit": "pct",
+      "m1": 4.0,
+      "ppi": 3.5,
+      "pmi": 49.2,
+      "score": -0.29224491662897634,
+      "ep_pct": 55.31120331950208,
+      "signal": "胜率−|赔率中性"
+    }
+  ],
+  "latest_snapshot": [
+    {
+      "id": "WIN",
+      "name": "三因子胜率(M1-BCI-PPI)",
+      "triggered": false,
+      "detail": "综合得分 -0.29（>0 为胜率+）",
+      "strength": "direction"
+    },
+    {
+      "id": "ODD",
+      "name": "E/P 赔率分位",
+      "triggered": false,
+      "detail": "E/P 分位 55%（>90% 为赔率极佳）",
+      "strength": "mid"
+    }
+  ],
+  "backtest": {
+    "window": "2023-08 ~ 2026-08",
+    "A_pure_timing": {
+      "nav": 1.2773687367165754,
+      "months_in": 20
+    },
+    "B_with_odds": {
+      "nav": 1.4060427742869614,
+      "months_in": 26
+    },
+    "C_buyhold": {
+      "nav": 1.2186908242967966
+    },
+    "win_rate_A": 65.0,
+    "win_rate_B": 57.69230769230769
+  }
+}

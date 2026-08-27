@@ -1,0 +1,424 @@
+{
+ "analyst": "liuyu",
+ "as_of": "2026-08",
+ "fwd_field": "c10y",
+ "fwd_unit": "bp",
+ "events": [
+  {
+   "event": "2023.11 化债特殊再融资债供给高峰，供给冲击担忧",
+   "month": "2023-11",
+   "view": "✅ 原文：化债型财政带来短期供给冲击，但宏观基本面跳跃性反转概率有限→供给冲击不改利率下行方向，逢高配置",
+   "view_grade": "✅",
+   "expect": "S6 资金面平稳 / 10Y 供给扰动后回落",
+   "triggers": [
+    "S5",
+    "S13"
+   ],
+   "trigger_details": [
+    {
+     "id": "S5",
+     "name": "资金宽松类型",
+     "detail": "信贷需求弱是 + 政府债供给慢否 + 汇率压力否 → 终结触发（供给放量/信贷回升/汇率压力）→ 提前降杠杆",
+     "strength": "mid"
+    },
+    {
+     "id": "S13",
+     "name": "月度节奏阶段",
+     "detail": "11 月中旬（day=15）→ 追加久期窗口（政策落地+数据明朗）",
+     "strength": "direction"
+    }
+   ],
+   "align": "partial",
+   "fwd_1m": -0.1,
+   "fwd_3m": -25.1,
+   "fwd_unit": "bp"
+  },
+  {
+   "event": "2024.2 春节前后，广发时期收尾；债市低位，配置盘买入",
+   "month": "2024-02",
+   "view": "⚠️ 框架外推：配置盘因存款重定价负债成本下降成主要买入力量（2024.12 表述回溯）",
+   "view_grade": "⚠️",
+   "expect": "S2/S3 行情状态判定",
+   "triggers": [
+    "S2",
+    "S13"
+   ],
+   "trigger_details": [
+    {
+     "id": "S2",
+     "name": "行情走强",
+     "detail": "10Y 均线方向下行 + 振幅 25BP（阈值 <40BP）→ 走强：超长期利率债攫取债牛收益",
+     "strength": "direction"
+    },
+    {
+     "id": "S13",
+     "name": "月度节奏阶段",
+     "detail": "2 月中旬（day=15）→ 追加久期窗口（政策落地+数据明朗）",
+     "strength": "direction"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": -6.5,
+   "fwd_3m": -12.6,
+   "fwd_unit": "bp"
+  },
+  {
+   "event": "2024.9.24 央行降准降息 + 9.26 政治局会议，债市先急跌后修复",
+   "month": "2024-09",
+   "view": "⚠️ 框架外推：货币趋松确认（OMO 1.7→1.5%），政策利好落地后关注止盈",
+   "view_grade": "⚠️",
+   "expect": "S1 货币趋松成立但信用未宽（四象限=货币趋松&信用趋紧，不触发进攻，partial）/ 10Y 先抑后扬",
+   "triggers": [
+    "S2",
+    "S13"
+   ],
+   "trigger_details": [
+    {
+     "id": "S2",
+     "name": "行情走强",
+     "detail": "10Y 均线方向下行 + 振幅 11BP（阈值 <40BP）→ 走强：超长期利率债攫取债牛收益",
+     "strength": "direction"
+    },
+    {
+     "id": "S13",
+     "name": "月度节奏阶段",
+     "detail": "9 月中旬（day=15）→ 追加久期窗口（政策落地+数据明朗）",
+     "strength": "direction"
+    }
+   ],
+   "align": "partial",
+   "fwd_1m": 4.4,
+   "fwd_3m": -17.3,
+   "fwd_unit": "bp"
+  },
+  {
+   "event": "2024.12 非银同业存款自律新规 + 存款利率自律定价机制，债市抢跑 2025 降息",
+   "month": "2024-12",
+   "view": "✅ 原文：存款自律落地→非银资金利率中枢下行、票息行情加速；债市抢跑 2025 降息；大行非银存款单月 -3.44 万亿→大行缺负债",
+   "view_grade": "✅",
+   "expect": "S11 存款自律信号（数据缺失降级）/ 10Y 加速下行",
+   "triggers": [
+    "S1",
+    "S2",
+    "S5",
+    "S6",
+    "S13"
+   ],
+   "trigger_details": [
+    {
+     "id": "S1",
+     "name": "货币-信用四象限",
+     "detail": "R007 连续下行 0 期/政策宽松是 + 社融同比连续上行 1 期 → 货币趋松&信用趋宽 → 转债+权益进攻（回测年化 6.31%、胜率 56.93% 最优）",
+     "strength": "strong"
+    },
+    {
+     "id": "S2",
+     "name": "行情走强",
+     "detail": "10Y 均线方向下行 + 振幅 22BP（阈值 <40BP）→ 走强：超长期利率债攫取债牛收益",
+     "strength": "direction"
+    },
+    {
+     "id": "S5",
+     "name": "资金宽松类型",
+     "detail": "信贷需求弱是 + 政府债供给慢否 + 汇率压力否 → 终结触发（供给放量/信贷回升/汇率压力）→ 提前降杠杆",
+     "strength": "mid"
+    },
+    {
+     "id": "S6",
+     "name": "资金面生命线",
+     "detail": "DR007 均值 1.700% vs OMO 1.500% → 偏离 +20BP（阈值 15BP） → 资金收敛：降杠杆、缩久期",
+     "strength": "strong"
+    },
+    {
+     "id": "S13",
+     "name": "月度节奏阶段",
+     "detail": "12 月中旬（day=15）→ 追加久期窗口（政策落地+数据明朗）",
+     "strength": "direction"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": -35.7,
+   "fwd_3m": -27.5,
+   "fwd_unit": "bp"
+  },
+  {
+   "event": "2025.1 年初季节性低点：降准降息预期（≥100BP 降准、>30BP 降息），央行暂停购债",
+   "month": "2025-01",
+   "view": "✅ 原文：2025 年降准幅度至少与 2024 年持平、降息幅度或超 30BP；宽货币主线不变",
+   "view_grade": "✅",
+   "expect": "10Y 低位 / S8 区间下沿临近",
+   "triggers": [
+    "S1",
+    "S5",
+    "S6",
+    "S8",
+    "S13"
+   ],
+   "trigger_details": [
+    {
+     "id": "S1",
+     "name": "货币-信用四象限",
+     "detail": "R007 连续下行 0 期/政策宽松是 + 社融同比连续上行 0 期 → 货币趋松&信用趋宽 → 转债+权益进攻（回测年化 6.31%、胜率 56.93% 最优）",
+     "strength": "strong"
+    },
+    {
+     "id": "S5",
+     "name": "资金宽松类型",
+     "detail": "信贷需求弱是 + 政府债供给慢否 + 汇率压力否 → 终结触发（供给放量/信贷回升/汇率压力）→ 提前降杠杆",
+     "strength": "mid"
+    },
+    {
+     "id": "S6",
+     "name": "资金面生命线",
+     "detail": "DR007 均值 1.675% vs OMO 1.500% → 偏离 +18BP（阈值 15BP） → 资金收敛：降杠杆、缩久期",
+     "strength": "strong"
+    },
+    {
+     "id": "S8",
+     "name": "利率锚下沿",
+     "detail": "10Y 1.62% vs 2026 区间下沿 1.60% → 贴近下沿：交易拥挤，防回调、止盈",
+     "strength": "mid"
+    },
+    {
+     "id": "S13",
+     "name": "月度节奏阶段",
+     "detail": "1 月中旬（day=15）→ 追加久期窗口（政策落地+数据明朗）",
+     "strength": "direction"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": 0.7,
+   "fwd_3m": 19.7,
+   "fwd_unit": "bp"
+  },
+  {
+   "event": "2025.5.8 降息 0.1pct（OMO→1.4%）+ 5.15 降准，利多兑现",
+   "month": "2025-05",
+   "view": "⚠️ 框架外推：降准降息落地=利多兑现止盈点（规则 12 预期差逻辑）",
+   "view_grade": "⚠️",
+   "expect": "S6 资金平稳 / 10Y 利多兑现后震荡",
+   "triggers": [
+    "S1",
+    "S2",
+    "S5",
+    "S6",
+    "S8",
+    "S13"
+   ],
+   "trigger_details": [
+    {
+     "id": "S1",
+     "name": "货币-信用四象限",
+     "detail": "R007 连续下行 3 期/政策宽松是 + 社融同比连续上行 0 期 → 货币趋松&信用趋宽 → 转债+权益进攻（回测年化 6.31%、胜率 56.93% 最优）",
+     "strength": "strong"
+    },
+    {
+     "id": "S2",
+     "name": "行情走强",
+     "detail": "10Y 均线方向下行 + 振幅 19BP（阈值 <40BP）→ 走强：超长期利率债攫取债牛收益",
+     "strength": "direction"
+    },
+    {
+     "id": "S5",
+     "name": "资金宽松类型",
+     "detail": "信贷需求弱是 + 政府债供给慢否 + 汇率压力否 → 终结触发（供给放量/信贷回升/汇率压力）→ 提前降杠杆",
+     "strength": "mid"
+    },
+    {
+     "id": "S6",
+     "name": "资金面生命线",
+     "detail": "DR007 均值 1.753% vs OMO 1.500% → 偏离 +25BP（阈值 15BP） → 资金收敛：降杠杆、缩久期",
+     "strength": "strong"
+    },
+    {
+     "id": "S8",
+     "name": "利率锚下沿",
+     "detail": "10Y 1.63% vs 2026 区间下沿 1.60% → 贴近下沿：交易拥挤，防回调、止盈",
+     "strength": "mid"
+    },
+    {
+     "id": "S13",
+     "name": "月度节奏阶段",
+     "detail": "5 月中旬（day=15）→ 追加久期窗口（政策落地+数据明朗）",
+     "strength": "direction"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": 4.9,
+   "fwd_3m": 7.9,
+   "fwd_unit": "bp"
+  },
+  {
+   "event": "2026.2 基金'买长卖短'、2 月末交易盘骤然止盈推动长端陡峭上行",
+   "month": "2026-02",
+   "view": "✅ 原文：2026.3.4 月报——交易盘骤然止盈；2025 学习效应→2026 机构对收益锁定更敏感，波动放大",
+   "view_grade": "✅",
+   "expect": "S10 交易盘止盈信号（数据缺失降级）/ 10Y 短线上行",
+   "triggers": [
+    "S2",
+    "S3",
+    "S5",
+    "S13"
+   ],
+   "trigger_details": [
+    {
+     "id": "S2",
+     "name": "行情走强",
+     "detail": "10Y 均线方向下行 + 振幅 4BP（阈值 <40BP）→ 走强：超长期利率债攫取债牛收益",
+     "strength": "direction"
+    },
+    {
+     "id": "S3",
+     "name": "行情盘整",
+     "detail": "10Y 最新 1.82% vs 均线 1.83% → 偏离 -1.1BP（带宽 2BP）→ 盘整：3-5 年信用债性价比",
+     "strength": "direction"
+    },
+    {
+     "id": "S5",
+     "name": "资金宽松类型",
+     "detail": "信贷需求弱是 + 政府债供给慢是 + 汇率压力否 → 动能缺失型确认 → 加杠杆套息安全边际高，宽松延续",
+     "strength": "mid"
+    },
+    {
+     "id": "S13",
+     "name": "月度节奏阶段",
+     "detail": "2 月中旬（day=15）→ 追加久期窗口（政策落地+数据明朗）",
+     "strength": "direction"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": -4.2,
+   "fwd_3m": -5.3,
+   "fwd_unit": "bp"
+  },
+  {
+   "event": "2026.4.21《流动性框架之三》：资金面=事件扰动+动能缺失两类型综合；DR001 中枢或维持 1.20-1.25%",
+   "month": "2026-04",
+   "view": "✅ 原文：动能缺失型宽松延续→加杠杆套息安全边际高；终结触发=政府债放量/信贷回升/汇率压力",
+   "view_grade": "✅",
+   "expect": "S5 动能缺失型 / S6 资金面平稳→加杠杆",
+   "triggers": [
+    "S3",
+    "S5",
+    "S13"
+   ],
+   "trigger_details": [
+    {
+     "id": "S3",
+     "name": "行情盘整",
+     "detail": "10Y 最新 1.82% vs 均线 1.82% → 偏离 0.7BP（带宽 2BP）→ 盘整：3-5 年信用债性价比",
+     "strength": "direction"
+    },
+    {
+     "id": "S5",
+     "name": "资金宽松类型",
+     "detail": "信贷需求弱是 + 政府债供给慢是 + 汇率压力否 → 动能缺失型确认 → 加杠杆套息安全边际高，宽松延续",
+     "strength": "mid"
+    },
+    {
+     "id": "S13",
+     "name": "月度节奏阶段",
+     "detail": "4 月中旬（day=15）→ 追加久期窗口（政策落地+数据明朗）",
+     "strength": "direction"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": -5.9,
+   "fwd_3m": -7.4,
+   "fwd_unit": "bp"
+  }
+ ],
+ "latest_snapshot": [
+  {
+   "id": "S1",
+   "name": "货币-信用四象限",
+   "triggered": false,
+   "detail": "R007 连续下行 1 期/政策宽松是 + 社融同比连续上行 0 期 → 货币趋松&信用趋紧 → 趋弱周期，控制仓位，票息策略",
+   "strength": "mid"
+  },
+  {
+   "id": "S2",
+   "name": "行情走强",
+   "triggered": true,
+   "detail": "10Y 均线方向下行 + 振幅 5BP（阈值 <40BP）→ 走强：超长期利率债攫取债牛收益",
+   "strength": "direction"
+  },
+  {
+   "id": "S3",
+   "name": "行情盘整",
+   "triggered": false,
+   "detail": "10Y 最新 1.72% vs 均线 1.76% → 偏离 -3.8BP（带宽 2BP）→ 非盘整",
+   "strength": "direction"
+  },
+  {
+   "id": "S4",
+   "name": "行情回调",
+   "triggered": false,
+   "detail": "10Y 均线未向上 + 振幅 5BP（阈值 >40BP）→ 未确认回调",
+   "strength": "direction"
+  },
+  {
+   "id": "S5",
+   "name": "资金宽松类型",
+   "triggered": true,
+   "detail": "信贷需求弱是 + 政府债供给慢是 + 汇率压力否 → 动能缺失型确认 → 加杠杆套息安全边际高，宽松延续",
+   "strength": "mid"
+  },
+  {
+   "id": "S6",
+   "name": "资金面生命线",
+   "triggered": false,
+   "detail": "DR007 均值 1.413% vs OMO 1.400% → 偏离 +1BP（阈值 15BP） → 资金不紧：债牛延续，持有久期",
+   "strength": "direction"
+  },
+  {
+   "id": "S7",
+   "name": "利率锚上沿",
+   "triggered": false,
+   "detail": "10Y 1.72% vs MLF+30BP 上沿 2.05% → 未达上沿",
+   "strength": "direction"
+  },
+  {
+   "id": "S8",
+   "name": "利率锚下沿",
+   "triggered": false,
+   "detail": "10Y 1.72% vs 2026 区间下沿 1.60% → 未达下沿",
+   "strength": "direction"
+  },
+  {
+   "id": "S9",
+   "name": "交易盘转买",
+   "triggered": false,
+   "detail": "缺字段 fund_netbuy（亿元）",
+   "strength": "direction"
+  },
+  {
+   "id": "S10",
+   "name": "交易盘止盈",
+   "triggered": false,
+   "detail": "缺字段 fund_netbuy（亿元）",
+   "strength": "direction"
+  },
+  {
+   "id": "S11",
+   "name": "存款自律/非银存款",
+   "triggered": false,
+   "detail": "存款自律落地否 + 非银存款单月 N/A 亿（压降阈值 -3000 亿）→ 负债端未现重构",
+   "strength": "direction"
+  },
+  {
+   "id": "S12",
+   "name": "理财净值化赎回",
+   "triggered": false,
+   "detail": "理财净值化否 + 赎回异动否 → 未现赎回负反馈",
+   "strength": "direction"
+  },
+  {
+   "id": "S13",
+   "name": "月度节奏阶段",
+   "triggered": true,
+   "detail": "8 月中旬（day=15）→ 追加久期窗口（政策落地+数据明朗）",
+   "strength": "direction"
+  }
+ ]
+}

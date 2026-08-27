@@ -1,0 +1,269 @@
+{
+ "analyst": "刘富兵（国盛证券金融工程）",
+ "as_of": "2026-08",
+ "fwd_field": "hs300_close",
+ "fwd_unit": "pct",
+ "events": [
+  {
+   "event": "底部判断：市场构筑双底（2024-01 底 + 2024-09 上旬）",
+   "month": "2024-01",
+   "view": "✅ views.md：2024-01『市场构筑双底』（价格分段框架：2024-01 底 + 2024-09 上旬）",
+   "view_grade": "✅",
+   "expect": "S1+S4",
+   "triggers": [
+    "S4"
+   ],
+   "trigger_details": [
+    {
+     "id": "S4",
+     "name": "宏观六周期偏离",
+     "detail": "真实周期 4 / 隐含周期 1（偏离 -3 档，阈值 |偏离|≥2）→ 隐含周期大幅滞后真实周期（预期收缩+高偏离）→ 看多风险资产（✅ 2026-07-17 案例）",
+     "strength": "mid"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": 9.4,
+   "fwd_3m": 12.1,
+   "fwd_unit": "pct"
+  },
+  {
+   "event": "七月配置建议：超配大盘质量",
+   "month": "2024-07",
+   "view": "✅ views.md：2024-07《七月配置建议：超配大盘质量》——风格'赔率-趋势-拥挤度'三维图谱应用案例",
+   "view_grade": "✅",
+   "expect": "S9",
+   "triggers": [
+    "S6",
+    "S9"
+   ],
+   "trigger_details": [
+    {
+     "id": "S6",
+     "name": "GK 预期收益/ERP",
+     "detail": "ERP 分位 81.8（阈值 >80 超配 / <20 减配）；GK 预期收益 3.8% → 高性价比：超配权益（ERP 高分位）",
+     "strength": "mid"
+    },
+    {
+     "id": "S9",
+     "name": "风格三维图谱",
+     "detail": "赔率 70 / 趋势 +0.70 / 拥挤度 35 → 高赔率+强趋势+低拥挤 → 超配该风格（✅ 2024-07 案例：超配大盘质量）",
+     "strength": "mid"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": -3.5,
+   "fwd_3m": 13.0,
+   "fwd_unit": "pct"
+  },
+  {
+   "event": "浪结构判断：日线上涨只走了 1 浪，结束概率不足 15%",
+   "month": "2024-10",
+   "view": "✅ views.md：2024-10-27『日线上涨只走了 1 浪，结束概率不足 15%』（量价分段+浪结构框架）",
+   "view_grade": "✅",
+   "expect": "S1",
+   "triggers": [
+    "S6",
+    "S7"
+   ],
+   "trigger_details": [
+    {
+     "id": "S6",
+     "name": "GK 预期收益/ERP",
+     "detail": "ERP 分位 7.1（阈值 >80 超配 / <20 减配）；GK 预期收益 -3.0% → 低性价比：减配权益（ERP 低分位）",
+     "strength": "mid"
+    },
+    {
+     "id": "S7",
+     "name": "行业轮动（右/左）",
+     "detail": "行业动量 z=+2.36（阈值 +0.5）；拥挤度分位 45 → 右侧买入象限：强趋势+低拥挤（✅ 原文'强趋势+低拥挤'，2011 以来年化超额 ~13.2%）",
+     "strength": "mid"
+    }
+   ],
+   "align": "partial",
+   "fwd_1m": 0.7,
+   "fwd_3m": -1.9,
+   "fwd_unit": "pct"
+  },
+  {
+   "event": "中期展望：超 2/3 行业超涨 → 日线上涨临近尾声、中期牛市刚刚开始",
+   "month": "2025-11",
+   "view": "✅ views.md：2025-11-07『超 2/3 行业超涨，半数以上指数走出 9-15 浪 → 日线上涨临近尾声，中期牛市刚刚开始』；景气指数 20.91",
+   "view_grade": "✅",
+   "expect": "S1+S5+S7",
+   "triggers": [
+    "S6",
+    "S10"
+   ],
+   "trigger_details": [
+    {
+     "id": "S6",
+     "name": "GK 预期收益/ERP",
+     "detail": "ERP 分位 7.4（阈值 >80 超配 / <20 减配）；GK 预期收益 -3.0% → 低性价比：减配权益（ERP 低分位）",
+     "strength": "mid"
+    },
+    {
+     "id": "S10",
+     "name": "转债偏离度轮动",
+     "detail": "偏离度 0.59%，Z=+1.87（±1.5σ 截尾）→ 转债仓位 0%",
+     "strength": "strong"
+    }
+   ],
+   "align": "partial",
+   "fwd_1m": 2.3,
+   "fwd_3m": 4.1,
+   "fwd_unit": "pct"
+  },
+  {
+   "event": "择时提示：提防冲高回落（高位行业超涨后的级别风险）",
+   "month": "2026-05",
+   "view": "✅ views.md：2026-05『提防冲高回落』",
+   "view_grade": "✅",
+   "expect": "S3+S7",
+   "triggers": [
+    "S6",
+    "S10"
+   ],
+   "trigger_details": [
+    {
+     "id": "S6",
+     "name": "GK 预期收益/ERP",
+     "detail": "ERP 分位 0.0（阈值 >80 超配 / <20 减配）；GK 预期收益 -3.0% → 低性价比：减配权益（ERP 低分位）",
+     "strength": "mid"
+    },
+    {
+     "id": "S10",
+     "name": "转债偏离度轮动",
+     "detail": "偏离度 0.46%，Z=+1.51（±1.5σ 截尾）→ 转债仓位 0%",
+     "strength": "strong"
+    }
+   ],
+   "align": "partial",
+   "fwd_1m": 1.8,
+   "fwd_3m": -5.4,
+   "fwd_unit": "pct"
+  },
+  {
+   "event": "市场结构观点：24 行业日线下跌 → 短暂反抽后大概率再次探底",
+   "month": "2026-07",
+   "view": "✅ views.md：2026-07-19『24 个行业日线下跌、17 个周线下跌 → 短暂反抽后大概率再次探底』；景气指数 21.42",
+   "view_grade": "✅",
+   "expect": "S1+S7",
+   "triggers": [
+    "S6"
+   ],
+   "trigger_details": [
+    {
+     "id": "S6",
+     "name": "GK 预期收益/ERP",
+     "detail": "ERP 分位 25.7（阈值 >80 超配 / <20 减配）；GK 预期收益 -2.9% → GK 预期收益转负（-2.9%）→ 回避（⚠️ 2021 案例）",
+     "strength": "mid"
+    }
+   ],
+   "align": "partial",
+   "fwd_1m": 0.9,
+   "fwd_3m": null,
+   "fwd_unit": "pct"
+  },
+  {
+   "event": "最新月报：30 分钟级别调整 + 六面图 -0.12 中性 + 转债偏离度 12.28%",
+   "month": "2026-08",
+   "view": "✅ views.md：2026-08『市场或迎 30 分钟级别调整；六面图综合分 -0.12 中性；转债全市场定价偏离度 12.28%』",
+   "view_grade": "✅",
+   "expect": "S2+S10",
+   "triggers": [
+    "S6",
+    "S10"
+   ],
+   "trigger_details": [
+    {
+     "id": "S6",
+     "name": "GK 预期收益/ERP",
+     "detail": "ERP 分位 30.6（阈值 >80 超配 / <20 减配）；GK 预期收益 -2.3% → GK 预期收益转负（-2.3%）→ 回避（⚠️ 2021 案例）",
+     "strength": "mid"
+    },
+    {
+     "id": "S10",
+     "name": "转债偏离度轮动",
+     "detail": "偏离度 12.28%，Z=+6.09（±1.5σ 截尾）→ 转债仓位 0%",
+     "strength": "strong"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": null,
+   "fwd_3m": null,
+   "fwd_unit": "pct"
+  }
+ ],
+ "latest_snapshot": [
+  {
+   "id": "S1",
+   "name": "价格分段择时",
+   "triggered": false,
+   "detail": "均线样本不足（需 ≥250 期）",
+   "strength": "direction"
+  },
+  {
+   "id": "S2",
+   "name": "择时雷达六面图",
+   "triggered": false,
+   "detail": "六面图综合分 -0.07（阈值 ±0.2；参与子信号 15 项）→ 中性（六面图综合分接近 0，参考 2026-08=-0.12 案例）",
+   "strength": "direction"
+  },
+  {
+   "id": "S3",
+   "name": "LPPL 极端拐点",
+   "triggered": false,
+   "detail": "价格偏离 12 月均线 -1.1%（阈值 ±15%）→ 无极端偏离，LPPL 无信号",
+   "strength": "direction"
+  },
+  {
+   "id": "S4",
+   "name": "宏观六周期偏离",
+   "triggered": false,
+   "detail": "真实周期 2 / 隐含周期 2（偏离 +0 档，阈值 |偏离|≥2）→ 周期偏离小 → 中性偏空（✅ 2026-07-03 案例）",
+   "strength": "direction"
+  },
+  {
+   "id": "S5",
+   "name": "A股景气与情绪",
+   "triggered": false,
+   "detail": "景气指数 21.42（26 周趋势升）/ 情绪 +0.00 → 景气/情绪信号中性",
+   "strength": "direction"
+  },
+  {
+   "id": "S6",
+   "name": "GK 预期收益/ERP",
+   "triggered": true,
+   "detail": "ERP 分位 30.6（阈值 >80 超配 / <20 减配）；GK 预期收益 -2.3% → GK 预期收益转负（-2.3%）→ 回避（⚠️ 2021 案例）",
+   "strength": "mid"
+  },
+  {
+   "id": "S7",
+   "name": "行业轮动（右/左）",
+   "triggered": false,
+   "detail": "行业动量 z=-2.44（阈值 +0.5）；拥挤度分位 45 → 趋势中性 → 行业均衡",
+   "strength": "direction"
+  },
+  {
+   "id": "S8",
+   "name": "行业 RS 主线",
+   "triggered": false,
+   "detail": "最新 RS 34.0（阈值 >90）→ RS=34.0 未达 90 阈值 → 非年度主线",
+   "strength": "direction"
+  },
+  {
+   "id": "S9",
+   "name": "风格三维图谱",
+   "triggered": false,
+   "detail": "赔率 50 / 趋势 +0.00 / 拥挤度 55 → 风格三维无极端 → 均衡",
+   "strength": "direction"
+  },
+  {
+   "id": "S10",
+   "name": "转债偏离度轮动",
+   "triggered": true,
+   "detail": "偏离度 12.28%，Z=+6.09（±1.5σ 截尾）→ 转债仓位 0%",
+   "strength": "strong"
+  }
+ ]
+}

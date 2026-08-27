@@ -13,9 +13,12 @@
 | Phase 2 框架提取前 | 选一个同类样例，先读 `framework.md` 末尾场景速查和一段代表性框架；必要时再抽读 `indicators.md` / `decision-rules.md` 对应章节 | 选 `strategy-zhangyidong`，只读结构和标注方式，不读全套 |
 | Phase 3 技能打包前 | 读同类 `SKILL.md` 的章节组织和路由表；必要时只看 `profile.md` / `views.md` 顶部结构 | 读 `strategy-zhangyidong/SKILL.md` 的结构，不照搬 description |
 | Phase 3 写脚本前 | 读 `scripts-template/screen_template.py` + `references/scripts-conventions.md` | 同左（骨架与规范是领域无关的，必读） |
+| Phase 4 写验证脚本前 | 读 `scripts-template/phase4_fetch_data_template.py` + `phase4_validate_events_template.py` + `references/phase4-scripts-conventions.md` | 同左（模板与规范是领域无关的，必读） |
 | Phase 4 验证报告前 | 读一个同类 `validation.md` 的五段式结构 | 读 `strategy-zhangyidong/validation.md` 的结构 |
 
 **判定"同类"**：specialty 相同（macro/strategy/fixed-income/quant）或产出形态相同（如都是"仓位+风格"型）。不确定时读结构最全的 zhangyidong。
+
+> **布局注记**：`examples/{specialty}-{name}/` 下的完成品为 **V1 布局**（文档平铺目录根）；V2 起文档类 6 份入 `references/`、数据快照入 `assets/data/`、脚本入 `scripts/`（见 SKILL.md「一、结构」成品布局）。读样例只取内容与标注纪律，目录形态以 V2 为准。
 
 ## 二、索引表（按归档时间倒序）
 
@@ -38,8 +41,8 @@
 归档时执行：
 
 1. **复制文档类 7 文件**进 `examples/{specialty}-{name}/`：
-   `SKILL.md` + `references/{framework,indicators,decision-rules}.md` + `assets/{profile,views,validation}.md`
-   （`scripts/screen.py` **不复制**——它是领域特定代码，骨架与规范已覆盖脚本质量；如需对照函数写法，读 `scripts-template/screen_template.py`，不要读取成品脚本源码）
+   `SKILL.md` + `references/{framework,indicators,decision-rules,profile,views,validation}.md`
+   （`scripts/` 下三个脚本**均不复制**——领域特定代码，骨架与规范已覆盖脚本质量；如需对照函数写法，读 `scripts-template/` 下的骨架，不要读取成品脚本源码）
 2. **更新本 README**：索引表顶部插入新行
 3. **不自动更新 domain-adapters.md**：只有当该案例揭示出跨案例稳定模式，并满足 `references/domain-adapters.md` 的"类型模式晋升门槛"时，才更新领域适配器
 
@@ -54,3 +57,5 @@
 | `views.md` | 顶部警示语、时间倒序、当前/历史分区、已过期标记、演化主线 |
 | `validation.md` | 五段式验证报告、三层来源表、事件三方对照、误报归因 |
 | `scripts-template/screen_template.py` | 脚本框架（非完整实现）：工具函数/参数区/五函数结构/JSON schema/`--schema`/四入口 |
+| `scripts-template/phase4_fetch_data_template.py` | A 类骨架：原始数据 → `assets/data/macro_real.json`（三层来源组装 + 缺口检查） |
+| `scripts-template/phase4_validate_events_template.py` | B 类骨架：事件时点复算 → `assets/data/signalcheck.json`（`import screen` 复用 calc_sN + 三方对照） |

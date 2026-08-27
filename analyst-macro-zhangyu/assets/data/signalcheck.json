@@ -1,0 +1,362 @@
+{
+  "analyst": "zhangyu",
+  "as_of": "2026-07",
+  "fwd_field": "csi",
+  "fwd_unit": "pct",
+  "events": [
+    {
+      "event": "剪刀差下行中",
+      "month": "2023-08",
+      "view": "",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "S8"
+      ],
+      "trigger_details": [
+        {
+          "id": "S8",
+          "name": "中游供需",
+          "detail": "中游供需差 +1.10%（需求-投资>0）",
+          "strength": "strong"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": -1.1,
+      "fwd_3m": -3.2,
+      "fwd_unit": "pct",
+      "scissors": -8.58,
+      "ent_dep": 3.12,
+      "res_dep": 11.7,
+      "m1": 2.2,
+      "ppi": -3.0,
+      "profit": -1.2,
+      "csi": 4672.31
+    },
+    {
+      "event": "M1转负+PPI深跌",
+      "month": "2024-04",
+      "view": "",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [],
+      "trigger_details": [],
+      "align": "n/a",
+      "fwd_1m": -1.5,
+      "fwd_3m": -7.7,
+      "fwd_unit": "pct",
+      "scissors": -10.7,
+      "ent_dep": -0.01,
+      "res_dep": 10.69,
+      "m1": 0.6,
+      "ppi": -2.5,
+      "profit": -0.7,
+      "csi": 4353.88
+    },
+    {
+      "event": "剪刀差见底(924前夕)",
+      "month": "2024-08",
+      "view": "",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "S7",
+        "S8"
+      ],
+      "trigger_details": [
+        {
+          "id": "S7",
+          "name": "央行降息条件",
+          "detail": "PPI 回落且利润为负 → 降息条件成立（PPI -1.0%、利润 -2.1%）",
+          "strength": "strong"
+        },
+        {
+          "id": "S8",
+          "name": "中游供需",
+          "detail": "中游供需差 +0.10%（需求-投资>0）",
+          "strength": "strong"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": 22.1,
+      "fwd_3m": 25.7,
+      "fwd_unit": "pct",
+      "scissors": -11.64,
+      "ent_dep": -1.09,
+      "res_dep": 10.55,
+      "m1": -3.0,
+      "ppi": -1.0,
+      "profit": -2.1,
+      "csi": 3854.74
+    },
+    {
+      "event": "924行情启动",
+      "month": "2024-09",
+      "view": "",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "S7",
+        "S8"
+      ],
+      "trigger_details": [
+        {
+          "id": "S7",
+          "name": "央行降息条件",
+          "detail": "PPI 回落且利润为负 → 降息条件成立（PPI -2.8%、利润 -3.5%）",
+          "strength": "strong"
+        },
+        {
+          "id": "S8",
+          "name": "中游供需",
+          "detail": "中游供需差 +0.20%（需求-投资>0）",
+          "strength": "strong"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": 1.9,
+      "fwd_3m": 0.9,
+      "fwd_unit": "pct",
+      "scissors": -11.81,
+      "ent_dep": -1.18,
+      "res_dep": 10.63,
+      "m1": -3.3,
+      "ppi": -2.8,
+      "profit": -3.5,
+      "csi": 4706.77
+    },
+    {
+      "event": "关税冲击底",
+      "month": "2025-04",
+      "view": "",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "S8"
+      ],
+      "trigger_details": [
+        {
+          "id": "S8",
+          "name": "中游供需",
+          "detail": "中游供需差 +1.50%（需求-投资>0）",
+          "strength": "strong"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": 2.1,
+      "fwd_3m": 10.8,
+      "fwd_unit": "pct",
+      "scissors": -7.95,
+      "ent_dep": 1.95,
+      "res_dep": 9.9,
+      "m1": 1.5,
+      "ppi": -2.7,
+      "profit": 1.0,
+      "csi": 4666.8
+    },
+    {
+      "event": "M1回升+剪刀差修复",
+      "month": "2025-08",
+      "view": "",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "S1",
+        "S8"
+      ],
+      "trigger_details": [
+        {
+          "id": "S1",
+          "name": "剪刀差回升确认",
+          "detail": "剪刀差连续回升 4 月（≥3 确认）",
+          "strength": "strong"
+        },
+        {
+          "id": "S8",
+          "name": "中游供需",
+          "detail": "中游供需差 +1.70%（需求-投资>0）",
+          "strength": "strong"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": 2.6,
+      "fwd_3m": 0.2,
+      "fwd_unit": "pct",
+      "scissors": -6.73,
+      "ent_dep": 3.29,
+      "res_dep": 10.02,
+      "m1": 6.0,
+      "ppi": -2.9,
+      "profit": 3.8,
+      "csi": 5723.95
+    },
+    {
+      "event": "非银存款大增+存款搬家",
+      "month": "2026-01",
+      "view": "",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "S8"
+      ],
+      "trigger_details": [
+        {
+          "id": "S8",
+          "name": "中游供需",
+          "detail": "中游供需差 +5.50%（需求-投资>0）",
+          "strength": "strong"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": 2.2,
+      "fwd_3m": 1.3,
+      "fwd_unit": "pct",
+      "scissors": -3.18,
+      "ent_dep": 4.1,
+      "res_dep": 7.28,
+      "m1": 4.9,
+      "ppi": -1.4,
+      "profit": -1.0,
+      "csi": 6259.18
+    },
+    {
+      "event": "剪刀差连续22月修复",
+      "month": "2026-05",
+      "view": "",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "S3",
+        "S8"
+      ],
+      "trigger_details": [
+        {
+          "id": "S3",
+          "name": "五信号共振",
+          "detail": "五信号 4/5（M1回升/PPI转正/剪刀差回升/财政/房价企稳，≥4 触发）",
+          "strength": "strong"
+        },
+        {
+          "id": "S8",
+          "name": "中游供需",
+          "detail": "中游供需差 +5.00%（需求-投资>0）",
+          "strength": "strong"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": 2.9,
+      "fwd_3m": null,
+      "fwd_unit": "pct",
+      "scissors": -2.94,
+      "ent_dep": 4.28,
+      "res_dep": 7.22,
+      "m1": 5.5,
+      "ppi": 3.9,
+      "profit": 18.8,
+      "csi": 6368.84
+    },
+    {
+      "event": "最新月",
+      "month": "2026-07",
+      "view": "",
+      "view_grade": "",
+      "expect": "",
+      "triggers": [
+        "S8"
+      ],
+      "trigger_details": [
+        {
+          "id": "S8",
+          "name": "中游供需",
+          "detail": "中游供需差 +5.50%（需求-投资>0）",
+          "strength": "strong"
+        }
+      ],
+      "align": "n/a",
+      "fwd_1m": null,
+      "fwd_3m": null,
+      "fwd_unit": "pct",
+      "scissors": -3.25,
+      "ent_dep": 3.83,
+      "res_dep": 7.08,
+      "m1": 4.0,
+      "ppi": 3.5,
+      "profit": 19.0,
+      "csi": 5681.24
+    }
+  ],
+  "latest_snapshot": [
+    {
+      "id": "S1",
+      "name": "剪刀差回升确认",
+      "triggered": false,
+      "detail": "剪刀差连续回升 2 月（≥3 确认）",
+      "strength": "direction"
+    },
+    {
+      "id": "S3",
+      "name": "五信号共振",
+      "triggered": false,
+      "detail": "五信号 3/5（M1回升/PPI转正/剪刀差回升/财政/房价企稳，≥4 触发）",
+      "strength": "direction"
+    },
+    {
+      "id": "S7",
+      "name": "央行降息条件",
+      "triggered": false,
+      "detail": "PPI 回落且利润为负 → 降息条件成立（PPI +3.5%、利润 +19.0%）",
+      "strength": "direction"
+    },
+    {
+      "id": "S8",
+      "name": "中游供需",
+      "triggered": true,
+      "detail": "中游供需差 +5.50%（需求-投资>0）",
+      "strength": "strong"
+    }
+  ],
+  "signal_check": [
+    {
+      "month": "2024-08",
+      "scissors": -11.64,
+      "scissors_up_count": 0,
+      "S1_triggered": false,
+      "five_count": 1,
+      "S3_triggered": false,
+      "midstream_balance": 0.1,
+      "S8_triggered": true,
+      "S7_triggered": true,
+      "ppi": -1.0,
+      "profit": -2.1,
+      "label": "924底"
+    },
+    {
+      "month": "2025-08",
+      "scissors": -6.73,
+      "scissors_up_count": 4,
+      "S1_triggered": true,
+      "five_count": 3,
+      "S3_triggered": false,
+      "midstream_balance": 1.7,
+      "S8_triggered": true,
+      "S7_triggered": false,
+      "ppi": -2.9,
+      "profit": 3.8,
+      "label": "M1回升"
+    },
+    {
+      "month": "2026-05",
+      "scissors": -2.94,
+      "scissors_up_count": 2,
+      "S1_triggered": false,
+      "five_count": 4,
+      "S3_triggered": true,
+      "midstream_balance": 5.0,
+      "S8_triggered": true,
+      "S7_triggered": false,
+      "ppi": 3.9,
+      "profit": 18.8,
+      "label": "最新信号"
+    }
+  ]
+}

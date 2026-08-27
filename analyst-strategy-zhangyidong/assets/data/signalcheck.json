@@ -1,0 +1,522 @@
+{
+ "analyst": "zhangyidong",
+ "as_of": "2026-08",
+ "fwd_field": "hsi_close",
+ "fwd_unit": "pct",
+ "events": [
+  {
+   "event": "2023H2 平衡市",
+   "month": "2023-08",
+   "view": "A股平衡市'螺蛳壳里做道场'、数字经济主线；港股'沼泽底'宜当债配",
+   "view_grade": "",
+   "expect": "",
+   "triggers": [
+    "S1",
+    "S3",
+    "S6",
+    "S9"
+   ],
+   "trigger_details": [
+    {
+     "id": "S1",
+     "name": "A股ERP高性价比",
+     "detail": "A股ERP 3.4%（88%分位） → 高性价比区，权益左侧布局/加仓",
+     "strength": null
+    },
+    {
+     "id": "S3",
+     "name": "港股三重共振",
+     "detail": "3/3 共振 | 估值✅(PE 8.9倍<11) | 资金✅(南向3月均值400亿>0) | 盈利✅(利润同比趋势向上)",
+     "strength": null
+    },
+    {
+     "id": "S6",
+     "name": "美债破4%估值扩张",
+     "detail": "10Y美债 3.83% → 估值扩张窗口，中国资产进攻",
+     "strength": null
+    },
+    {
+     "id": "S9",
+     "name": "SMART主线轮动",
+     "detail": "风险偏好 50（0-100） → MA制造出海/均衡",
+     "strength": null
+    }
+   ],
+   "align": "n/a",
+   "fwd_1m": -3.1,
+   "fwd_3m": -7.3,
+   "fwd_unit": "pct",
+   "fwd_field": "hsi_close",
+   "fwd_hs300_1m": -2.0,
+   "fwd_hs300_3m": -7.1
+  },
+  {
+   "event": "2024.03 港股的春天",
+   "month": "2024-03",
+   "view": "看多港股：美债利率见顶+内地低利率+经济企稳，高胜率投资",
+   "view_grade": "",
+   "expect": "",
+   "triggers": [
+    "S1",
+    "S3",
+    "S9"
+   ],
+   "trigger_details": [
+    {
+     "id": "S1",
+     "name": "A股ERP高性价比",
+     "detail": "A股ERP 3.8%（80%分位） → 高性价比区，权益左侧布局/加仓",
+     "strength": null
+    },
+    {
+     "id": "S3",
+     "name": "港股三重共振",
+     "detail": "3/3 共振 | 估值✅(PE 9.0倍<11) | 资金✅(南向3月均值417亿>0) | 盈利✅(利润同比趋势向上)",
+     "strength": null
+    },
+    {
+     "id": "S9",
+     "name": "SMART主线轮动",
+     "detail": "风险偏好 41（0-100） → MA制造出海/均衡",
+     "strength": null
+    }
+   ],
+   "align": "n/a",
+   "fwd_1m": 7.4,
+   "fwd_3m": 7.1,
+   "fwd_unit": "pct",
+   "fwd_field": "hsi_close",
+   "fwd_hs300_1m": 1.9,
+   "fwd_hs300_3m": -2.1
+  },
+  {
+   "event": "2024.09 924反转前",
+   "month": "2024-09",
+   "view": "反转逻辑：风险溢价5%→0（高性价比）+政策组合拳+财富再配置",
+   "view_grade": "",
+   "expect": "",
+   "triggers": [
+    "S1",
+    "S3",
+    "S6",
+    "S9"
+   ],
+   "trigger_details": [
+    {
+     "id": "S1",
+     "name": "A股ERP高性价比",
+     "detail": "A股ERP 4.5%（95%分位） → 高性价比区，权益左侧布局/加仓",
+     "strength": null
+    },
+    {
+     "id": "S3",
+     "name": "港股三重共振",
+     "detail": "2/3 共振 | 估值✅(PE 9.5倍<11) | 资金✅(南向3月均值483亿>0) | 盈利✗(利润趋势未向上)",
+     "strength": null
+    },
+    {
+     "id": "S6",
+     "name": "美债破4%估值扩张",
+     "detail": "10Y美债 3.70% → 估值扩张窗口，中国资产进攻",
+     "strength": null
+    },
+    {
+     "id": "S9",
+     "name": "SMART主线轮动",
+     "detail": "风险偏好 41（0-100） → MA制造出海/均衡",
+     "strength": null
+    }
+   ],
+   "align": "n/a",
+   "fwd_1m": -3.9,
+   "fwd_3m": -5.1,
+   "fwd_unit": "pct",
+   "fwd_field": "hsi_close",
+   "fwd_hs300_1m": -3.2,
+   "fwd_hs300_3m": -2.1
+  },
+  {
+   "event": "2025.04 关税战",
+   "month": "2025-04",
+   "view": "'特朗普是纸老虎'，积极防御、布局黄金坑",
+   "view_grade": "",
+   "expect": "",
+   "triggers": [
+    "S1",
+    "S3",
+    "S5",
+    "S9",
+    "S10"
+   ],
+   "trigger_details": [
+    {
+     "id": "S1",
+     "name": "A股ERP高性价比",
+     "detail": "A股ERP 4.0%（79%分位） → 高性价比区，权益左侧布局/加仓",
+     "strength": null
+    },
+    {
+     "id": "S3",
+     "name": "港股三重共振",
+     "detail": "3/3 共振 | 估值✅(PE 10.4倍<11) | 资金✅(南向3月均值883亿>0) | 盈利✅(利润同比趋势向上)",
+     "strength": null
+    },
+    {
+     "id": "S5",
+     "name": "信用扩张确认",
+     "detail": "社融趋势回升✅ | M1趋势回升✅ → 信用扩张，权益仓位中枢上移",
+     "strength": null
+    },
+    {
+     "id": "S9",
+     "name": "SMART主线轮动",
+     "detail": "风险偏好 64（0-100） → MA制造出海/均衡",
+     "strength": null
+    },
+    {
+     "id": "S10",
+     "name": "南向风格转向成长",
+     "detail": "成长占比 60%（风格=dividend） → 港股结构进攻（成长扩散）",
+     "strength": null
+    }
+   ],
+   "align": "n/a",
+   "fwd_1m": 5.3,
+   "fwd_3m": 12.0,
+   "fwd_unit": "pct",
+   "fwd_field": "hsi_close",
+   "fwd_hs300_1m": 1.8,
+   "fwd_hs300_3m": 8.1
+  },
+  {
+   "event": "2025.06 港股长牛",
+   "month": "2025-06",
+   "view": "恒指ERP 8%、南向6600亿定价权，港股牛市风雨无阻",
+   "view_grade": "",
+   "expect": "",
+   "triggers": [
+    "S3",
+    "S5",
+    "S9",
+    "S10"
+   ],
+   "trigger_details": [
+    {
+     "id": "S3",
+     "name": "港股三重共振",
+     "detail": "3/3 共振 | 估值✅(PE 10.7倍<11) | 资金✅(南向3月均值1033亿>0) | 盈利✅(利润同比趋势向上)",
+     "strength": null
+    },
+    {
+     "id": "S5",
+     "name": "信用扩张确认",
+     "detail": "社融趋势回升✅ | M1趋势回升✅ → 信用扩张，权益仓位中枢上移",
+     "strength": null
+    },
+    {
+     "id": "S9",
+     "name": "SMART主线轮动",
+     "detail": "风险偏好 66（0-100） → MA制造出海/均衡",
+     "strength": null
+    },
+    {
+     "id": "S10",
+     "name": "南向风格转向成长",
+     "detail": "成长占比 70%（风格=dividend） → 港股结构进攻（成长扩散）",
+     "strength": null
+    }
+   ],
+   "align": "n/a",
+   "fwd_1m": 2.9,
+   "fwd_3m": 11.6,
+   "fwd_unit": "pct",
+   "fwd_field": "hsi_close",
+   "fwd_hs300_1m": 3.5,
+   "fwd_hs300_3m": 17.9
+  },
+  {
+   "event": "2026.03 SMART机遇期",
+   "month": "2026-03",
+   "view": "A股ERP 5.3%（47.7%分位），年初震荡是蓄力",
+   "view_grade": "",
+   "expect": "",
+   "triggers": [
+    "S2",
+    "S3",
+    "S9",
+    "S10"
+   ],
+   "trigger_details": [
+    {
+     "id": "S2",
+     "name": "A股ERP顶部预警",
+     "detail": "A股ERP 2.7%（5%分位） → 趋近0/低分位，顶部预警，减仓",
+     "strength": null
+    },
+    {
+     "id": "S3",
+     "name": "港股三重共振",
+     "detail": "3/3 共振 | 估值✅(PE 10.8倍<11) | 资金✅(南向3月均值700亿>0) | 盈利✅(利润同比趋势向上)",
+     "strength": null
+    },
+    {
+     "id": "S9",
+     "name": "SMART主线轮动",
+     "detail": "风险偏好 73（0-100） → RT硬科技占优（进攻）",
+     "strength": null
+    },
+    {
+     "id": "S10",
+     "name": "南向风格转向成长",
+     "detail": "成长占比 65%（风格=growth） → 港股结构进攻（成长扩散）",
+     "strength": null
+    }
+   ],
+   "align": "n/a",
+   "fwd_1m": 4.0,
+   "fwd_3m": -7.7,
+   "fwd_unit": "pct",
+   "fwd_field": "hsi_close",
+   "fwd_hs300_1m": 8.0,
+   "fwd_hs300_3m": 11.9
+  },
+  {
+   "event": "2026.05 夏季策略",
+   "month": "2026-05",
+   "view": "N型走势（5冲高/6-7寒风/8走强）；三重共振；逢低超配A+H",
+   "view_grade": "",
+   "expect": "",
+   "triggers": [
+    "S2",
+    "S3",
+    "S9",
+    "S10"
+   ],
+   "trigger_details": [
+    {
+     "id": "S2",
+     "name": "A股ERP顶部预警",
+     "detail": "A股ERP 2.5%（0%分位） → 趋近0/低分位，顶部预警，减仓",
+     "strength": null
+    },
+    {
+     "id": "S3",
+     "name": "港股三重共振",
+     "detail": "3/3 共振 | 估值✅(PE 10.0倍<11) | 资金✅(南向3月均值617亿>0) | 盈利✅(利润同比趋势向上)",
+     "strength": null
+    },
+    {
+     "id": "S9",
+     "name": "SMART主线轮动",
+     "detail": "风险偏好 72（0-100） → RT硬科技占优（进攻）",
+     "strength": null
+    },
+    {
+     "id": "S10",
+     "name": "南向风格转向成长",
+     "detail": "成长占比 63%（风格=growth） → 港股结构进攻（成长扩散）",
+     "strength": null
+    }
+   ],
+   "align": "n/a",
+   "fwd_1m": -9.1,
+   "fwd_3m": 3.1,
+   "fwd_unit": "pct",
+   "fwd_field": "hsi_close",
+   "fwd_hs300_1m": 1.8,
+   "fwd_hs300_3m": -5.6
+  },
+  {
+   "event": "2026.07.30 翻多",
+   "month": "2026-07",
+   "view": "'老乡别再割肉'：=1998纳斯达克，AI应用下半场启动；机构ETF+4700亿/散户撤离",
+   "view_grade": "",
+   "expect": "",
+   "triggers": [
+    "S3",
+    "S8",
+    "S9",
+    "S10",
+    "S12"
+   ],
+   "trigger_details": [
+    {
+     "id": "S3",
+     "name": "港股三重共振",
+     "detail": "3/3 共振 | 估值✅(PE 10.5倍<11) | 资金✅(南向3月均值450亿>0) | 盈利✅(利润同比趋势向上)",
+     "strength": null
+    },
+    {
+     "id": "S8",
+     "name": "AI应用扩散确认",
+     "detail": "硬件拥挤回落✅ | 应用可见性0.65>0.6✅ → 应用下半场启动，超配AI应用，减配拥挤硬件",
+     "strength": null
+    },
+    {
+     "id": "S9",
+     "name": "SMART主线轮动",
+     "detail": "风险偏好 54（0-100） → MA制造出海/均衡",
+     "strength": null
+    },
+    {
+     "id": "S10",
+     "name": "南向风格转向成长",
+     "detail": "成长占比 61%（风格=growth） → 港股结构进攻（成长扩散）",
+     "strength": null
+    },
+    {
+     "id": "S12",
+     "name": "机构散户背离(底部特征)",
+     "detail": "机构ETF净流入4700亿 | 散户情绪35 → 机构吸筹+散户撤离，逆势布局辅助确认",
+     "strength": null
+    }
+   ],
+   "align": "n/a",
+   "fwd_1m": 0.3,
+   "fwd_3m": null,
+   "fwd_unit": "pct",
+   "fwd_field": "hsi_close",
+   "fwd_hs300_1m": 0.7,
+   "fwd_hs300_3m": null
+  },
+  {
+   "event": "2026.08 底部确认",
+   "month": "2026-08",
+   "view": "'空间到了时间没到'：8月逆势布局不追高；美债或摸5%（灰犀牛）",
+   "view_grade": "",
+   "expect": "",
+   "triggers": [
+    "S3",
+    "S7",
+    "S8",
+    "S9",
+    "S10"
+   ],
+   "trigger_details": [
+    {
+     "id": "S3",
+     "name": "港股三重共振",
+     "detail": "3/3 共振 | 估值✅(PE 10.5倍<11) | 资金✅(南向3月均值483亿>0) | 盈利✅(利润同比趋势向上)",
+     "strength": null
+    },
+    {
+     "id": "S7",
+     "name": "美债高位灰犀牛",
+     "detail": "10Y美债 4.85% → 高位灰犀牛，短期压制，逆势布局不追高",
+     "strength": null
+    },
+    {
+     "id": "S8",
+     "name": "AI应用扩散确认",
+     "detail": "硬件拥挤回落✅ | 应用可见性0.7>0.6✅ → 应用下半场启动，超配AI应用，减配拥挤硬件",
+     "strength": null
+    },
+    {
+     "id": "S9",
+     "name": "SMART主线轮动",
+     "detail": "风险偏好 55（0-100） → MA制造出海/均衡",
+     "strength": null
+    },
+    {
+     "id": "S10",
+     "name": "南向风格转向成长",
+     "detail": "成长占比 60%（风格=growth） → 港股结构进攻（成长扩散）",
+     "strength": null
+    }
+   ],
+   "align": "n/a",
+   "fwd_1m": null,
+   "fwd_3m": null,
+   "fwd_unit": "pct",
+   "fwd_field": "hsi_close",
+   "fwd_hs300_1m": null,
+   "fwd_hs300_3m": null
+  }
+ ],
+ "latest_snapshot": [
+  {
+   "id": "S1",
+   "name": "A股ERP高性价比",
+   "triggered": false,
+   "detail": "A股ERP 3.0%（25%分位）",
+   "strength": ""
+  },
+  {
+   "id": "S2",
+   "name": "A股ERP顶部预警",
+   "triggered": false,
+   "detail": "A股ERP 3.0%（25%分位）",
+   "strength": ""
+  },
+  {
+   "id": "S3",
+   "name": "港股三重共振",
+   "triggered": true,
+   "detail": "3/3 共振 | 估值✅(PE 10.5倍<11) | 资金✅(南向3月均值483亿>0) | 盈利✅(利润同比趋势向上)",
+   "strength": ""
+  },
+  {
+   "id": "S4",
+   "name": "卖空占比高位",
+   "triggered": false,
+   "detail": "卖空占比 16.0%（历史均值15%，当前偏高）",
+   "strength": ""
+  },
+  {
+   "id": "S5",
+   "name": "信用扩张确认",
+   "triggered": false,
+   "detail": "社融趋势未回升✗ | M1趋势未回升✗",
+   "strength": ""
+  },
+  {
+   "id": "S6",
+   "name": "美债破4%估值扩张",
+   "triggered": false,
+   "detail": "10Y美债 4.85%",
+   "strength": ""
+  },
+  {
+   "id": "S7",
+   "name": "美债高位灰犀牛",
+   "triggered": true,
+   "detail": "10Y美债 4.85% → 高位灰犀牛，短期压制，逆势布局不追高",
+   "strength": ""
+  },
+  {
+   "id": "S8",
+   "name": "AI应用扩散确认",
+   "triggered": true,
+   "detail": "硬件拥挤回落✅ | 应用可见性0.7>0.6✅ → 应用下半场启动，超配AI应用，减配拥挤硬件",
+   "strength": ""
+  },
+  {
+   "id": "S9",
+   "name": "SMART主线轮动",
+   "triggered": true,
+   "detail": "风险偏好 55（0-100） → MA制造出海/均衡",
+   "strength": ""
+  },
+  {
+   "id": "S10",
+   "name": "南向风格转向成长",
+   "triggered": true,
+   "detail": "成长占比 60%（风格=growth） → 港股结构进攻（成长扩散）",
+   "strength": ""
+  },
+  {
+   "id": "S11",
+   "name": "解禁/IPO高峰",
+   "triggered": false,
+   "detail": "当月解禁 3500亿港元",
+   "strength": ""
+  },
+  {
+   "id": "S12",
+   "name": "机构散户背离(底部特征)",
+   "triggered": false,
+   "detail": "机构ETF净流入2000亿 | 散户情绪45",
+   "strength": ""
+  }
+ ]
+}

@@ -3,6 +3,11 @@
 > **定位**：规定蒸馏产出的 `scripts/screen.py` 必须达到的架构与质量标准，保证任意新对话产出的脚本与既有三份（guolei/zhangyu/zhangyidong）**同框架、同质量**。
 > **配套**：`examples/scripts-template/screen_template.py` 是**不完整骨架**（函数签名、参数区格式、JSON schema/`--schema` 已就位，计算逻辑留占位）。新任务的标准做法 = **复制骨架 → 按本规范 + decision-rules.md 填充计算函数 → 自测通过**。
 > 骨架缺"实现细节"，本规范缺"结构约束"，两者互补，缺一不可。
+>
+> **工具链（scripts/ 三脚本）**：`phase4_fetch_data.py`（A 类·数据准备）→ 产出 `assets/data/macro_real.json`；
+> `screen.py`（运行时信号计算，消费 macro_real.json）；`phase4_validate_events.py`（B 类·事件复算，
+> `import screen` 复用 calc_sN → `assets/data/signalcheck.json`）。本文件规范 screen.py；
+> A/B 两类验证脚本的规范见 `phase4-scripts-conventions.md`。
 
 ---
 

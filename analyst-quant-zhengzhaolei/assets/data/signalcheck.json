@@ -1,0 +1,415 @@
+{
+ "analyst": "郑兆磊（兴业证券金融工程）",
+ "as_of": "2026-08",
+ "fwd_field": "hs300_close",
+ "fwd_unit": "pct",
+ "events": [
+  {
+   "event": "LPPLS 负泡沫抄底参照点（2024-02 流动性危机后低点）",
+   "month": "2024-02",
+   "view": "✅ 原文：《如何捕捉A股市场趋势与极端拐点？》将 2024-02 列为负泡沫抄底参照案例；views.md 2025-01 前市场低点",
+   "view_grade": "✅",
+   "expect": "S6",
+   "triggers": [
+    "S3",
+    "S6",
+    "S8"
+   ],
+   "trigger_details": [
+    {
+     "id": "S3",
+     "name": "成长价值轮动",
+     "detail": "风格得分 z=-0.91σ（阈值 ±0.5σ）→ 价值占优",
+     "strength": "mid"
+    },
+    {
+     "id": "S6",
+     "name": "趋势与极端拐点",
+     "detail": "LPPLS 近 3 月范围 [+0.08, -0.76]（阈值 ±0.50）→ 负泡沫触发 → 分批抄底（参照 2022-04、2024-02 ✅ 原文）",
+     "strength": "strong"
+    },
+    {
+     "id": "S8",
+     "name": "美债利率方向",
+     "detail": "10Y 美债 4.00% → 4.10% → 上行，利好价值",
+     "strength": "direction"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": 0.6,
+   "fwd_3m": 1.8,
+   "fwd_unit": "pct"
+  },
+  {
+   "event": "年度展望：股市易涨难跌、成长占优",
+   "month": "2025-01",
+   "view": "✅ views.md：2025-01『股市易涨难跌，成长占优』",
+   "view_grade": "✅",
+   "expect": "S1+S3",
+   "triggers": [
+    "S1",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7"
+   ],
+   "trigger_details": [
+    {
+     "id": "S1",
+     "name": "点位效率择时",
+     "detail": "长期上涨概率 68.0%（阈值 看多>60/谨慎<40）→ 看多（单边趋势模式）",
+     "strength": "strong"
+    },
+    {
+     "id": "S3",
+     "name": "成长价值轮动",
+     "detail": "风格得分 z=-1.25σ（阈值 ±0.5σ）→ 价值占优",
+     "strength": "mid"
+    },
+    {
+     "id": "S4",
+     "name": "大小盘轮动",
+     "detail": "趋势得分 z=+0.83σ（阈值 ±0.5σ）；相对换手率分位 71 → 小盘占优",
+     "strength": "mid"
+    },
+    {
+     "id": "S5",
+     "name": "行业轮动（分歧与共振）",
+     "detail": "资金维度 +0.20 / 业绩维度 +0.20 → 高确信买入（共振）：资金+业绩同向，纳入前 5 行业核心持仓",
+     "strength": "mid"
+    },
+    {
+     "id": "S6",
+     "name": "趋势与极端拐点",
+     "detail": "LPPLS 近 3 月范围 [+0.95, +0.40]（阈值 ±0.50）→ 正泡沫触发 → 见顶预警，减仓锁定收益",
+     "strength": "strong"
+    },
+    {
+     "id": "S7",
+     "name": "换手率情绪",
+     "detail": "换手率 99637.77% vs 过去 2 年中位数 73812.34% → 活跃，利好成长",
+     "strength": "direction"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": 1.9,
+   "fwd_3m": -1.2,
+   "fwd_unit": "pct"
+  },
+  {
+   "event": "市场结构观点：结构分化、看好成长",
+   "month": "2025-09",
+   "view": "✅ views.md：2025-09『市场结构分化，看好成长方向』",
+   "view_grade": "✅",
+   "expect": "S3",
+   "triggers": [
+    "S1",
+    "S2",
+    "S3",
+    "S5",
+    "S6",
+    "S7",
+    "S8"
+   ],
+   "trigger_details": [
+    {
+     "id": "S1",
+     "name": "点位效率择时",
+     "detail": "长期上涨概率 66.6%（阈值 看多>60/谨慎<40）→ 看多（单边趋势模式）",
+     "strength": "strong"
+    },
+    {
+     "id": "S2",
+     "name": "ERP3.0 仓位锚",
+     "detail": "ERP 3.0 滚动 4 年分位 0.0（参考读数 2026-08=35.4，以当期报告为准）→ 低性价比：权益减仓至下限档",
+     "strength": "strong"
+    },
+    {
+     "id": "S3",
+     "name": "成长价值轮动",
+     "detail": "风格得分 z=-0.84σ（阈值 ±0.5σ）→ 价值占优",
+     "strength": "mid"
+    },
+    {
+     "id": "S5",
+     "name": "行业轮动（分歧与共振）",
+     "detail": "资金维度 +0.30 / 业绩维度 +0.30 → 高确信买入（共振）：资金+业绩同向，纳入前 5 行业核心持仓",
+     "strength": "mid"
+    },
+    {
+     "id": "S6",
+     "name": "趋势与极端拐点",
+     "detail": "LPPLS 近 3 月范围 [+1.58, +0.56]（阈值 ±0.50）→ 正泡沫触发 → 见顶预警，减仓锁定收益",
+     "strength": "strong"
+    },
+    {
+     "id": "S7",
+     "name": "换手率情绪",
+     "detail": "换手率 252837.81% vs 过去 2 年中位数 91101.01% → 活跃，利好成长",
+     "strength": "direction"
+    },
+    {
+     "id": "S8",
+     "name": "美债利率方向",
+     "detail": "10Y 美债 4.33% → 4.40% → 上行，利好价值",
+     "strength": "direction"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": -0.0,
+   "fwd_3m": -0.2,
+   "fwd_unit": "pct"
+  },
+  {
+   "event": "年度/春季策略：权益总体乐观、成长占优 TMT 主线",
+   "month": "2026-02",
+   "view": "✅ views.md：2026-02『权益总体乐观；成长占优，TMT 为主线』",
+   "view_grade": "✅",
+   "expect": "S1+S3+S5",
+   "triggers": [
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7"
+   ],
+   "trigger_details": [
+    {
+     "id": "S1",
+     "name": "点位效率择时",
+     "detail": "长期上涨概率 68.0%（阈值 看多>60/谨慎<40）→ 看多（单边趋势模式）",
+     "strength": "strong"
+    },
+    {
+     "id": "S2",
+     "name": "ERP3.0 仓位锚",
+     "detail": "ERP 3.0 滚动 4 年分位 3.3（参考读数 2026-08=35.4，以当期报告为准）→ 低性价比：权益减仓至下限档",
+     "strength": "strong"
+    },
+    {
+     "id": "S3",
+     "name": "成长价值轮动",
+     "detail": "风格得分 z=-0.59σ（阈值 ±0.5σ）→ 价值占优",
+     "strength": "mid"
+    },
+    {
+     "id": "S4",
+     "name": "大小盘轮动",
+     "detail": "趋势得分 z=+1.20σ（阈值 ±0.5σ）；相对换手率分位 53 → 小盘占优",
+     "strength": "mid"
+    },
+    {
+     "id": "S5",
+     "name": "行业轮动（分歧与共振）",
+     "detail": "资金维度 +0.40 / 业绩维度 +0.30 → 高确信买入（共振）：资金+业绩同向，纳入前 5 行业核心持仓",
+     "strength": "mid"
+    },
+    {
+     "id": "S6",
+     "name": "趋势与极端拐点",
+     "detail": "LPPLS 近 3 月范围 [+1.08, +0.90]（阈值 ±0.50）→ 正泡沫触发 → 见顶预警，减仓锁定收益",
+     "strength": "strong"
+    },
+    {
+     "id": "S7",
+     "name": "换手率情绪",
+     "detail": "换手率 145886.39% vs 过去 2 年中位数 140251.36% → 活跃，利好成长",
+     "strength": "direction"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": -5.5,
+   "fwd_3m": 3.9,
+   "fwd_unit": "pct"
+  },
+  {
+   "event": "LPPLS 正泡沫见顶预警（信号捕捉：6 月正泡沫 → 7 月大跌验证）",
+   "month": "2026-06",
+   "view": "⚠️ 推断：screen.py S6 在 2026-06 输出正泡沫见顶预警（+0.755>0.5），非分析师原文观点；作信号前瞻性验证案例",
+   "view_grade": "⚠️",
+   "expect": "S6",
+   "triggers": [
+    "S1",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8"
+   ],
+   "trigger_details": [
+    {
+     "id": "S1",
+     "name": "点位效率择时",
+     "detail": "长期上涨概率 68.0%（阈值 看多>60/谨慎<40）→ 看多（单边趋势模式）",
+     "strength": "strong"
+    },
+    {
+     "id": "S3",
+     "name": "成长价值轮动",
+     "detail": "风格得分 z=-1.86σ（阈值 ±0.5σ）→ 价值占优",
+     "strength": "mid"
+    },
+    {
+     "id": "S4",
+     "name": "大小盘轮动",
+     "detail": "趋势得分 z=+0.99σ（阈值 ±0.5σ）；相对换手率分位 24 → 小盘占优",
+     "strength": "mid"
+    },
+    {
+     "id": "S5",
+     "name": "行业轮动（分歧与共振）",
+     "detail": "资金维度 +0.40 / 业绩维度 +0.30 → 高确信买入（共振）：资金+业绩同向，纳入前 5 行业核心持仓",
+     "strength": "mid"
+    },
+    {
+     "id": "S6",
+     "name": "趋势与极端拐点",
+     "detail": "LPPLS 近 3 月范围 [+0.79, +0.76]（阈值 ±0.50）→ 正泡沫触发 → 见顶预警，减仓锁定收益",
+     "strength": "strong"
+    },
+    {
+     "id": "S7",
+     "name": "换手率情绪",
+     "detail": "换手率 328163.64% vs 过去 2 年中位数 165987.96% → 活跃，利好成长",
+     "strength": "direction"
+    },
+    {
+     "id": "S8",
+     "name": "美债利率方向",
+     "detail": "10Y 美债 4.33% → 4.40% → 上行，利好价值",
+     "strength": "direction"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": -7.9,
+   "fwd_3m": null,
+   "fwd_unit": "pct"
+  },
+  {
+   "event": "最新资产配置：ERP 3.0 分位 35.4 未触发减仓、小盘+价值占优、五行业推荐",
+   "month": "2026-08",
+   "view": "✅ views.md：2026-08『小盘+价值占优；机械/电力设备/家电/有色/传媒』",
+   "view_grade": "✅",
+   "expect": "S3+S4+S5+S8",
+   "triggers": [
+    "S1",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8"
+   ],
+   "trigger_details": [
+    {
+     "id": "S1",
+     "name": "点位效率择时",
+     "detail": "长期上涨概率 53.5%（阈值 看多>60/谨慎<40）→ 谨慎偏乐观",
+     "strength": "mid"
+    },
+    {
+     "id": "S3",
+     "name": "成长价值轮动",
+     "detail": "风格得分 z=-2.80σ（阈值 ±0.5σ）→ 价值占优",
+     "strength": "mid"
+    },
+    {
+     "id": "S4",
+     "name": "大小盘轮动",
+     "detail": "趋势得分 z=-0.71σ（阈值 ±0.5σ）；相对换手率分位 33 → 大盘占优",
+     "strength": "mid"
+    },
+    {
+     "id": "S5",
+     "name": "行业轮动（分歧与共振）",
+     "detail": "资金维度 +0.50 / 业绩维度 +0.40 → 高确信买入（共振）：资金+业绩同向，纳入前 5 行业核心持仓",
+     "strength": "mid"
+    },
+    {
+     "id": "S6",
+     "name": "趋势与极端拐点",
+     "detail": "LPPLS 近 3 月范围 [+0.76, -0.18]（阈值 ±0.50）→ 正泡沫触发 → 见顶预警，减仓锁定收益",
+     "strength": "strong"
+    },
+    {
+     "id": "S7",
+     "name": "换手率情绪",
+     "detail": "换手率 212762.57% vs 过去 2 年中位数 176321.04% → 活跃，利好成长",
+     "strength": "direction"
+    },
+    {
+     "id": "S8",
+     "name": "美债利率方向",
+     "detail": "10Y 美债 4.62% → 4.85% → 上行，利好价值",
+     "strength": "direction"
+    }
+   ],
+   "align": "align",
+   "fwd_1m": null,
+   "fwd_3m": null,
+   "fwd_unit": "pct"
+  }
+ ],
+ "latest_snapshot": [
+  {
+   "id": "S1",
+   "name": "点位效率择时",
+   "triggered": true,
+   "detail": "长期上涨概率 53.5%（阈值 看多>60/谨慎<40）→ 谨慎偏乐观",
+   "strength": "mid"
+  },
+  {
+   "id": "S2",
+   "name": "ERP3.0 仓位锚",
+   "triggered": false,
+   "detail": "ERP 3.0 滚动 4 年分位 30.6（参考读数 2026-08=35.4，以当期报告为准）→ 中性偏空：标配偏谨慎档",
+   "strength": "direction"
+  },
+  {
+   "id": "S3",
+   "name": "成长价值轮动",
+   "triggered": true,
+   "detail": "风格得分 z=-2.80σ（阈值 ±0.5σ）→ 价值占优",
+   "strength": "mid"
+  },
+  {
+   "id": "S4",
+   "name": "大小盘轮动",
+   "triggered": true,
+   "detail": "趋势得分 z=-0.71σ（阈值 ±0.5σ）；相对换手率分位 33 → 大盘占优",
+   "strength": "mid"
+  },
+  {
+   "id": "S5",
+   "name": "行业轮动（分歧与共振）",
+   "triggered": true,
+   "detail": "资金维度 +0.50 / 业绩维度 +0.40 → 高确信买入（共振）：资金+业绩同向，纳入前 5 行业核心持仓",
+   "strength": "mid"
+  },
+  {
+   "id": "S6",
+   "name": "趋势与极端拐点",
+   "triggered": true,
+   "detail": "LPPLS 近 3 月范围 [+0.76, -0.18]（阈值 ±0.50）→ 正泡沫触发 → 见顶预警，减仓锁定收益",
+   "strength": "strong"
+  },
+  {
+   "id": "S7",
+   "name": "换手率情绪",
+   "triggered": true,
+   "detail": "换手率 212762.57% vs 过去 2 年中位数 176321.04% → 活跃，利好成长",
+   "strength": "direction"
+  },
+  {
+   "id": "S8",
+   "name": "美债利率方向",
+   "triggered": true,
+   "detail": "10Y 美债 4.62% → 4.85% → 上行，利好价值",
+   "strength": "direction"
+  }
+ ]
+}

@@ -7,14 +7,26 @@ description: 分析师蒸馏流水线技能（自包含指令包）。当需要�
 ```
 analyst-distill/
 ├── SKILL.md                                  # 本文件：入口（流程 + 红线）
-├── references/
-│   ├── acceptance-checklist.md               # ★ 九节逐条验收清单（领域无关，强制标准）
+├── references/                               # 本技能规范文档（需读进上下文）
+│   ├── acceptance-checklist.md               # ★ 逐条验收清单（领域无关，强制标准）
 │   ├── scripts-conventions.md                # ★ screen.py 编写规范（架构 + JSON schema + 自测）
+│   ├── phase4-scripts-conventions.md         # ★ Phase 4 验证脚本规范（A/B 两类 + 六步流程 + 产物契约）
 │   └── domain-adapters.md                    # 领域翻译要点 + 新领域自适应路径 + 平台降级方案
 └── examples/
     ├── README.md                             # 样本库使用规则 + 读取时机表 + 案例归档约定
-    ├── scripts-template/screen_template.py   # ★ 不完整代码骨架（框架就位，计算逻辑留占位）   
-    └── {specialty}-{name}/                    # 完成品文档示范
+    ├── scripts-template/                     # ★ 三份代码骨架
+    │   ├── screen_template.py                # ★ screen 骨架（框架就位，计算逻辑留占位）
+    │   ├── phase4_fetch_data_template.py     # ★ A 类骨架：原始数据 → macro_real.json
+    │   └── phase4_validate_events_template.py# ★ B 类骨架：事件复算 → signalcheck.json
+    └── {specialty}-{name}/                   # 完成品文档示范（V1 平铺布局，见 examples/README.md 注记）
+```
+**成品 skill 目录（V2 布局）**：
+```
+analyst-{specialty}-{name}/
+├── SKILL.md                # 入口（工作流 + 数据获取 + 红线）
+├── references/             # 文档类 6 份：framework / indicators / decision-rules / profile / views / validation
+├── assets/data/            # 数据快照 2 份：macro_real.json（A 类产出）+ signalcheck.json（B 类产出）
+└── scripts/                # 可执行 3 份：screen.py + phase4_fetch_data.py + phase4_validate_events.py
 ```
 
 ## 二、使用前必读（新对话读取顺序）
@@ -22,7 +34,7 @@ analyst-distill/
 1. 读完本文件（流程 + 红线）
 2. 开始 Phase 2 前：读 `references/acceptance-checklist.md` §2-§4（产出标准）+ 按 `examples/README.md` 读取时机表选读示范样本
 3. 开始 Phase 3 前：读 §1/§5/§6/§8 + `references/scripts-conventions.md` + `examples/scripts-template/screen_template.py`
-4. 开始 Phase 4 前：读 §7 + 本文件 Phase 4 操作陷阱 + 同类 `validation.md` 示范
+4. 开始 Phase 4 前：读 §7/§10 + `references/phase4-scripts-conventions.md` + 两份 phase4 模板 + 同类 `validation.md` 示范
 5. 遇到"新领域/缺数据源/无校验工具"时：读 `references/domain-adapters.md`
 
 ## 三、前置约定（与用户确认后再开工）
@@ -58,7 +70,7 @@ analyst-distill/
   - ⚠️ 外推 = 有公开依据但具体数值/分档未经逐字核对（注明"以原文复核"）；
   - ❌ 推断 = 分析师未公布、为实现可脚本化而作的假设（等权、窗口长度、滤波 λ 等）——**必须写明"最小假设，可替换"**；
   - 回测/绩效数字一律加"~"并注明"取自公开报告，以原文为准"；观点实例的具体小数（如某期因子贡献值）不得杜撰，写"以当期报告原文为准"占位
-- 观点时效性处理：把时点观点单独拆到 `assets/views.md`，decision-rules 中只留"观点更新模板"结构，framework 实例加时点标注
+- 观点时效性处理：把时点观点单独拆到 `references/views.md`，decision-rules 中只留"观点更新模板"结构，framework 实例加时点标注
 - **验收**：对照 `references/acceptance-checklist.md` §2-§4 逐条勾选，全过才算完成；未过项须修复或写明理由
 - 等用户确认
 
@@ -67,32 +79,33 @@ analyst-distill/
     - description 控制在约 100-160 中文字，写“一句话定位 + 关键触发场景”；不要枚举指标、阈值、报告标题和完整术语表。
 - `scripts/screen.py`：**复制 `examples/scripts-template/screen_template.py` 骨架 → 按 `references/scripts-conventions.md` + decision-rules.md 填充**。纯标准库；五函数结构；参数区注释块每常量带来源分级；`--data` 真实数据 / 默认演示模式（明确标注合成数据）/ `--json-out` 布尔标志 /`--schema`：输出 JSON Schema。
     - 需要计算时先运行 `python scripts/screen.py --schema` 获取输入字段，再准备数据并运行 `python scripts/screen.py --data data.json`。
-- `assets/profile.md`：分析师档案（执业编号/团队/风格/与其他分析师差异）+ 36 个月观点验证记录（✅/⏳/❓/⚠️ 分级）+ **机构归属变化红线**
-- `assets/views.md`：观点快照区（顶部警示语"使用前核对最新观点"、时间倒序、旧快照标"已过期"、演化主线）
-- `assets/views.md` 层级说明（必须写入成品 skill）：`views.md` 是观点时间线/口径校准层，不是决策规则层；用于确认最新观点日期、机构归属、观点演化与有效期，不直接参与信号计算，不得替代 `decision-rules.md` 的可执行规则。
+- `references/profile.md`：分析师档案（执业编号/团队/风格/与其他分析师差异）+ 36 个月观点验证记录（✅/⏳/❓/⚠️ 分级）+ **机构归属变化红线**
+- `references/views.md`：观点快照区（顶部警示语"使用前核对最新观点"、时间倒序、旧快照标"已过期"、演化主线）
+- `references/views.md` 层级说明（必须写入成品 skill）：`views.md` 是观点时间线/口径校准层，不是决策规则层；用于确认最新观点日期、机构归属、观点演化与有效期，不直接参与信号计算，不得替代 `decision-rules.md` 的可执行规则。
 - 用 skill-creator 的 `package_skill.py` 校验（必须输出 "Skill is valid"）；无该校验工具时按验收清单 §1/§9 人工勾选替代
 - 运行 `screen.py` 演示模式验证输出（demo 下每信号至少触发一次）
 - **验收**：对照 `references/acceptance-checklist.md` §1/§5/§6/§8 逐条勾选；校验通过；演示模式跑通
 - 向用户汇报（写了什么文档/脚本功能/校验结果），等确认
 
 ### Phase 4 信号验证
-- 用 westock-data / westock-tool 拉取窗口内真实历史数据，回填 screen.py 验证 S 信号与真实行情的对应
-- 与 views.md 观点快照对照，标记验证状态（profile.md 中 ✅/⏳）
+- 按 `references/phase4-scripts-conventions.md` §二**统一六步流程**执行：拉原始数据 → A 类脚本组装 `assets/data/macro_real.json` → 最新月快照 → EVENTS 事件表（≥5 条）→ B 类脚本复算 → 落盘
+- **脚本直接写进成品 skill 的 `scripts/`**（固定名 `phase4_fetch_data.py` / `phase4_validate_events.py`），不落工作区；工作区只留 `.workbuddy/tmp_{analyst}_{source}.txt` 原始数据（可重拉、不入包）。A 类复制 `phase4_fetch_data_template.py` 按分析师填充；B 类从 `phase4_validate_events_template.py` 复制，仅改 EVENTS 表 / infer_extras / 前瞻标的
+- 与 references/views.md 观点快照对照，标记验证状态（references/profile.md 中 ✅/⏳）
 - **事件时点复算（核心方法）**：不要只看最新快照。对窗口内每个关键事件月份，用"截至该月"的数据窗口（`history` 是"字段→月份数组"的转置结构，按月份索引切片即可）复算全部 S 信号，与①分析师同期观点 ②前瞻 1M/3M 真实行情三方对照。该时点的 `extras`（风格/阶段类）需按叙事推断并标注 ⚠️。
 - **定位提醒（重要）**：验证的目的是**检验框架是否忠实还原分析师思维**（信号方向与分析师判断/历史事件对得上），**不是追求回测绩效**。
   回测跑出来的收益只证明"我们实现的版本"（含 ❌ 推断参数）的表现，**不能反推分析师真实参数**；
   报告必须写明：绩效数字 ≠ 分析师框架的绩效，推断参数是主要不确定来源
 - **数据缺口如实记录（三层来源标注）**：拿不到真实数据的因子用 ✅westock / ⚠️观点锚点+线性插值 / ❌工程代理 三级标注，不得用合成值冒充验证结论。误报点必须归因（数据口径差异 vs 框架边界 vs 原文含糊），并在结论中写明"必要非充分"类框架教训（例：三重共振是空间条件，缺时间/催化时仍会误报→决策规则需叠加确认条件）。
-- 脚本、数据口径、打包工具相关陷阱见 `references/scripts-conventions.md` §7；Phase 4 遇到脚本或数据异常时先按该节排查
-- **验收**：对照 `references/acceptance-checklist.md` §7 逐条勾选：五段式报告、三层来源表、≥5 事件三方对照、误报归因、口径差异双处标注
-- 写 `assets/validation.md`，更新 profile.md 验证状态，重新打包 zip（同步 validation.md）
+- 脚本、数据口径、打包工具相关陷阱见 `references/scripts-conventions.md` §7 与 `references/phase4-scripts-conventions.md` §7；Phase 4 遇到脚本或数据异常时先按这两节排查
+- **验收**：对照 `references/acceptance-checklist.md` §7 + §10 逐条勾选：五段式报告、三层来源表、≥5 事件三方对照、误报归因、口径差异双处标注、两脚本入包、两 JSON 入 `assets/data/`
+- 写 `references/validation.md`，更新 references/profile.md 验证状态，重新打包 zip（同步 validation.md）
 - 向用户汇报（拉了哪些数据/怎么回填/验证结论/误报），等确认
 
 ### Phase 5 批量扩展与案例归档
 - 原型确认后，按相同流水线批量蒸馏其余分析师
 - 跨分析师做差异化定位（如 12 位分析师 = 宏观3/策略3/固收3/金工3），避免框架重复
 - 完成单个分析师后，默认只交付该分析师独立 skill；不要自动改写 analyst-distill 的通用指令
-- 仅当用户要求归档，或该案例被判断为可复用金样本时，复制文档类 7 文件进 `examples/{specialty}-{name}/` 并更新 `examples/README.md` 索引表；**不复制 screen.py**
+- 仅当用户要求归档，或该案例被判断为可复用金样本时，复制文档类 7 文件（`SKILL.md` + `references/{framework,indicators,decision-rules,profile,views,validation}.md`）进 `examples/{specialty}-{name}/` 并更新 `examples/README.md` 索引表；**scripts/ 下三个脚本均不复制**
 - `references/domain-adapters.md` 只在形成跨案例稳定类型模式时更新，晋升标准见该文件"类型模式晋升门槛"
 
 ## 五、模板要点（从完成品固化）
@@ -106,6 +119,7 @@ analyst-distill/
   - 若信号主要依赖 ❌推断参数或缺失数据代理 → 不直接压过 views，输出"低置信分歧"；
   - 不论冲突形式如何，必须在输出中汇报分歧及其置信来源。
 - screen.py 保持纯标准库（HP 滤波共轭梯度 ~30 行，避免 numpy 依赖）；结构与质量见 `references/scripts-conventions.md`
+- Phase 4 验证脚本与 screen.py 同住 `scripts/`：B 类 `import screen` 复用 calc_sN，禁止重写计算逻辑；A/B 两类规范见 `references/phase4-scripts-conventions.md`
 - A 股惯例：涨红跌绿、货币 ¥
 - 每次 phase 完成写入 `.workbuddy/memory/YYYY-MM-DD.md`（记录决策与产出）
 
@@ -121,6 +135,6 @@ analyst-distill/
 
 ## 七、平台分层声明
 
-- **平台无关核心（任何平台自包含）**：本 SKILL.md（流程）+ acceptance-checklist.md（验收）+ scripts-conventions.md + screen_template.py（脚本规范与骨架）+ examples/（示范样本）
+- **平台无关核心（任何平台自包含）**：本 SKILL.md（流程）+ acceptance-checklist.md（验收）+ scripts-conventions.md + phase4-scripts-conventions.md（两脚本规范）+ 三份代码骨架（screen_template.py + phase4 A/B 模板）+ examples/（示范样本）
 - **平台增强项（有则用，无则降级）**：westock-data/westock-tool/neodata（数据源）、package_skill.py（机器校验）、`~/.workbuddy/skills/` 安装机制
 - 降级路径详见 `references/domain-adapters.md` §三

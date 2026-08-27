@@ -22,10 +22,12 @@
 - [ ] ✅ `description` 不枚举长指标清单、阈值清单、报告标题清单或术语百科；具体知识放入 references/assets
 - [ ] ✅ 明确写入：除调试外，不读取 `scripts/screen.py` 源码；用 `python scripts/screen.py --schema` 获取输入契约
 - [ ] ✅ 含五章节：使用流程 / 触发场景速查表 / 数据获取 / 脚本使用 / 红线与注意事项
-- [ ] ✅ 使用流程第一步是"读 `assets/views.md` 最新观点"（观点时效性第一原则）
+- [ ] ✅ 使用流程第一步是"读 `references/views.md` 最新观点"（观点时效性第一原则）
 - [ ] ⚠️ 工作流明确"先体检→再择时→后配置/结构"的顺序（与 decision-rules 一致）
 - [ ] ⚠️ 红线节含：机构归属变化警示（分析师跳槽/离职）、观点时效性警示、与同领域其他已蒸馏技能差异表
 - [ ] ⚠️ 数据获取节列出可用数据源（westock-data/westock-tool/neodata 或平台降级方案 §domain-adapters）
+- [ ] ✅ **目录符合 V2 布局**：文档类 6 份（framework/indicators/decision-rules/profile/views/validation）与 SKILL.md 平级于 `references/`；数据快照 2 份入 `assets/data/`（macro_real.json / signalcheck.json）；可执行脚本 3 份入 `scripts/`（screen.py / phase4_fetch_data.py / phase4_validate_events.py）
+- [ ] ✅ 目录判定标准：`references/` = 按需读进上下文的文档；`assets/` = 不进上下文、直接用于产出的数据文件；`scripts/` = 可执行代码，三者不混放
 
 ## §2 references/framework.md（Phase 2 产出）
 
@@ -56,20 +58,20 @@
 - [ ] ✅ 时点观点不进规则；规则区只留"观点更新模板"结构
 - [ ] ✅ 规则条数 ≥ 6 且覆盖方法论主体（参考：三完成品均为 11-12 条）
 
-## §5 assets/profile.md（Phase 3 产出）
+## §5 references/profile.md（Phase 3 产出）
 
 - [ ] ✅ 含四章节：分析师档案（任职经历/执业信息）/ 方法论特征 / 窗口内观点验证记录 / 风险与注意事项
 - [ ] ✅ **机构归属变化红线段**存在（任职机构、起止时间、当前身份；引用观点时标注任职期归属）
 - [ ] ✅ 观点验证记录为表格式：时间 / 观点 / 后续验证（✅⏳❓⚠️ 分级）/ 备注
 - [ ] ✅ Phase 4 完成后新增"信号验证状态"节（哪些 S 信号最高置信、哪些待样本累积）
 
-## §6 assets/views.md（Phase 3 产出）
+## §6 references/views.md（Phase 3 产出）
 
 - [ ] ✅ 六要素齐全：顶部警示语（"使用前核对最新观点"）/ 时间倒序 / 当前有效 vs 历史参考分区 / 旧快照标"已过期" / 每条含时点与出处 / 演化主线总结
 - [ ] ✅ 当前有效区与最新观点保持同步（Phase 1 末端检索 + 使用前核对）
 - [ ] ✅ 观点与决策规则物理分离（views 只存观点，不进规则）；明确 `views.md` 是观点时间线/口径校准层，不是决策规则层，不得替代 `decision-rules.md` 或 `screen.py`
 
-## §7 assets/validation.md（Phase 4 产出）
+## §7 references/validation.md（Phase 4 产出）
 
 - [ ] ✅ **五段式结构**：数据口径说明（三层来源表）→ 事件时点复算对照表 → 实时信号快照 → 验证结论（含局限）→ 口径差异双处标注
 - [ ] ✅ 三层来源清单明确：✅westock 直连 / ⚠️观点锚点+插值 / ❌工程代理，**每个字段都归类**
@@ -97,11 +99,22 @@
 - [ ] ✅ **观点与规则严格分离**：信号计算不依赖观点快照；若最新观点与信号冲突，必须输出分歧说明。✅原文规则 + 最新真实数据的高置信信号优先；主要依赖 ❌推断参数或缺失数据代理的信号不得机械压过 views，只能标为低置信分歧
 - [ ] ✅ **来源标注纪律**：一切阈值/权重/参数/回测数字带 ✅/⚠️/❌；回测数字加"~"并注"取自公开报告，以原文为准"；观点实例具体小数不得杜撰，写"以当期报告原文为准"
 - [ ] ✅ **禁止虚假精确**：无法核对到原文的数字一律标"推断"，不得写成引用
-- [ ] ✅ 产出文档结构齐全（references×3 + assets×3 + SKILL.md + scripts/screen.py）
-- [ ] ✅ 成品 skill 默认不读取 `assets/validation.md`；只有用户要求验证、复盘、可信度或历史命中率时才读取
+- [ ] ✅ 产出文档结构齐全（references×6 + assets/data×2 + SKILL.md + scripts×3）
+- [ ] ✅ 成品 skill 默认不读取 `references/validation.md`；只有用户要求验证、复盘、可信度或历史命中率时才读取
 - [ ] ✅ 用 `package_skill.py` 校验通过（"Skill is valid"）；无该校验工具时按 §1/§9 人工逐条勾选替代
-- [ ] ✅ zip 打包与最新产出同步（含 validation.md）
+- [ ] ✅ zip 打包与最新产出同步（含 references/validation.md 与 assets/data 两 JSON）
 - [ ] ✅ 每 phase 完成写入 `.workbuddy/memory/YYYY-MM-DD.md`
+
+## §10 scripts/phase4_* 与 assets/data/（Phase 4 产出）
+
+- [ ] ✅ 两个验证脚本入包，固定名 `scripts/phase4_fetch_data.py`（A 类·数据准备）+ `scripts/phase4_validate_events.py`（B 类·事件复算），**不落工作区**；工作区只留 `.workbuddy/tmp_{analyst}_{source}.txt` 原始数据
+- [ ] ✅ A 类：纯标准库；`MONTHS` 显式构造 + `assert` 长度；函数分层固定（通用工具/加载 `load_*`/锚点 `ANCHORS`/代理 `build_proxies`/组装 `build_macro_json`）；`_meta` 逐字段来源标注；跑完打印缺口检查
+- [ ] ✅ 锚点（⚠️）每个可指到分析师原文出处（哪篇报告哪个数字）；代理（❌）每条写明"最小假设，可替换"；不得用合成值冒充真实数据
+- [ ] ✅ B 类：`import screen` 复用 calc_sN，**禁止重写计算逻辑**；calc_sN 统一签名 `fn(h, extras)`；输出含最新月全信号快照
+- [ ] ✅ EVENTS 表 ≥5 条（月份/事件名/同期观点+✅⚠️分级/预期信号）；`infer_extras` 时点推断仅用"截至该月"信息并标注 ⚠️
+- [ ] ✅ 数据产物入包：`assets/data/macro_real.json`（A 类产出，即 screen.py `--data` 输入）+ `assets/data/signalcheck.json`（B 类产出，事件对照证据），schema 符合 phase4-scripts-conventions.md §六
+- [ ] ✅ 复现性：重跑 `phase4_fetch_data.py` 可重建 macro_real.json；`phase4_validate_events.py` 复算与 validation.md 事件对照表一致（跨环境可复现）
+- [ ] ✅ 数据缺口如实降级：缺口大的字段在 validation.md 中注明，不得静默填值
 
 ---
 
@@ -111,4 +124,4 @@
 2. Phase 3 产出后 → 勾选 §1/§5/§6/§8 + §9 相关项
 3. Phase 4 产出后 → 勾选 §7 + §9 相关项
 4. 全部完成 → 整体过一遍 §9，未过项当场修复
-5. 勾选结果写入该技能 `assets/validation.md` 附录或单独自查记录，随 zip 交付
+5. 勾选结果写入该技能 `references/validation.md` 附录或单独自查记录，随 zip 交付
